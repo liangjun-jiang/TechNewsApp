@@ -80,8 +80,9 @@ NSString* RelativeDateString(NSDate *date)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    __weak typeof (self) weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^{
-        [self.feed fetch];
+        [weakSelf.feed fetch];
     }];
 }
 

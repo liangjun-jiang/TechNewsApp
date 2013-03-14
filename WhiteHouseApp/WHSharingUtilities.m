@@ -94,11 +94,11 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
 }
 
 
-- (void)shareOnFacebook
-{
-    WHAppDelegate *appDelegate = (WHAppDelegate *)[UIApplication sharedApplication].delegate;
-    [appDelegate shareOnFacebook:self.feedItem];
-}
+//- (void)shareOnFacebook
+//{
+//    WHAppDelegate *appDelegate = (WHAppDelegate *)[UIApplication sharedApplication].delegate;
+//    [appDelegate shareOnFacebook:self.feedItem];
+//}
 
 
 #pragma mark - action sheet methods
@@ -169,7 +169,7 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
             break;
             
         case ArticleActionFacebook:
-            [self shareOnFacebook];
+//            [self shareOnFacebook];
             break;
             
         case ArticleActionFavorite:

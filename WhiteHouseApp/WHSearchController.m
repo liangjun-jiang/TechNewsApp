@@ -81,7 +81,7 @@
     NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:formatString, escaped, self.page]];
     
     DebugLog(@"Search URL = %@", searchURL);
-    NINetworkRequestOperation *op = [[NINetworkRequestOperation alloc] initWithURL:searchURL];
+    __block NINetworkRequestOperation *op = [[NINetworkRequestOperation alloc] initWithURL:searchURL];
     
     // this block will be called with the operation itself
     op.didFinishBlock = ^(id obj) {

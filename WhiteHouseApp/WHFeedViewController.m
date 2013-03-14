@@ -245,7 +245,7 @@ NSDate *DayFromDate(NSDate *date)
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[GANTracker sharedTracker] trackPageview:[self trackingPathComponent] withError:nil];
+//    [[GANTracker sharedTracker] trackPageview:[self trackingPathComponent] withError:nil];
     
     // get the root/shared live bar controller
     WHLiveBarController *liveBarController = ((WHAppDelegate *)[UIApplication sharedApplication].delegate).liveBarController;

@@ -42,7 +42,7 @@
 #import "WHVideoViewController.h"
 #import "WHRemoteFile.h"
 #import "UATagUtils.h"
-#import "UAPush.h"
+//#import "UAPush.h"
 
 
 @interface WHAppDelegate ()
@@ -50,7 +50,7 @@
 @property (nonatomic, strong) WHRootMenuViewController *menu;
 @property (nonatomic, strong) WHFeedViewController *liveSectionViewController;
 @property (nonatomic, strong) WHLiveController *liveController;
-@property (nonatomic, strong) Facebook *facebook;
+//@property (nonatomic, strong) Facebook *facebook;
 @property (nonatomic, strong) NSDictionary *pendingNotification;
 @end
 
@@ -63,7 +63,7 @@
 @synthesize liveSectionViewController = _liveViewController;
 @synthesize liveController;
 @synthesize liveBarController;
-@synthesize facebook;
+//@synthesize facebook;
 @synthesize pendingNotification;
 
 - (void)configureAppearance
@@ -207,13 +207,13 @@
     
     
     // configure Google Analytics
-    NSString *accountID = AppConfig(@"GANAccountID");
-    GANTracker *tracker = [GANTracker sharedTracker];
-    
-    // do not send full IP addresses
-    tracker.anonymizeIp = YES;
-    [tracker startTrackerWithAccountID:accountID dispatchPeriod:30 delegate:nil];
-    [tracker trackPageview:@"/LAUNCH" withError:nil];
+//    NSString *accountID = AppConfig(@"GANAccountID");
+//    GANTracker *tracker = [GANTracker sharedTracker];
+//    
+//    // do not send full IP addresses
+//    tracker.anonymizeIp = YES;
+//    [tracker startTrackerWithAccountID:accountID dispatchPeriod:30 delegate:nil];
+//    [tracker trackPageview:@"/LAUNCH" withError:nil];
     
     self.menu = [self loadMenu];
     UIViewController *defaultViewController = [[self.menu.menuItems objectAtIndex:0] viewController];
@@ -233,7 +233,7 @@
     
     // start updating live events
     [self.liveController startUpdating];
-    [self initAirship:application];
+//    [self initAirship:application];
     
 #ifdef DEBUG
     // uncomment to test notifications
@@ -244,39 +244,39 @@
 }
 
 
-- (void)initAirship:(UIApplication *)application
-{
-    [UAirship takeOff:[NSDictionary dictionary]];
-    
-    // Register for notifications
-    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                     UIRemoteNotificationTypeSound |
-                                                     UIRemoteNotificationTypeAlert)];
-}
+//- (void)initAirship:(UIApplication *)application
+//{
+//    [UAirship takeOff:[NSDictionary dictionary]];
+//    
+//    // Register for notifications
+//    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+//                                                     UIRemoteNotificationTypeSound |
+//                                                     UIRemoteNotificationTypeAlert)];
+//}
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [UAirship land];
+//    [UAirship land];
 }
 
 
 #pragma mark Push notification handling
 
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Updates the device token and registers the token with UA
-    DebugLog(@"Got registration data: %@", deviceToken);
-    
-    // use a basic set of Urban Airship tags
-    NSArray *baseTags = [UATagUtils createTags:(UATagTypeTimeZoneAbbreviation |
-                                                UATagTypeLanguage |
-                                                UATagTypeCountry |
-                                                UATagTypeDeviceType)];
-    // specify the new version of the app, so we can send appropriate notifications
-    NSArray *tags = [baseTags arrayByAddingObject:@"app_v2"];
-    [UAPush shared].tags = tags;
-    [[UAPush shared] registerDeviceToken:deviceToken];
-}
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    // Updates the device token and registers the token with UA
+//    DebugLog(@"Got registration data: %@", deviceToken);
+//    
+//    // use a basic set of Urban Airship tags
+//    NSArray *baseTags = [UATagUtils createTags:(UATagTypeTimeZoneAbbreviation |
+//                                                UATagTypeLanguage |
+//                                                UATagTypeCountry |
+//                                                UATagTypeDeviceType)];
+//    // specify the new version of the app, so we can send appropriate notifications
+//    NSArray *tags = [baseTags arrayByAddingObject:@"app_v2"];
+//    [UAPush shared].tags = tags;
+//    [[UAPush shared] registerDeviceToken:deviceToken];
+//}
 
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -384,99 +384,99 @@
 
 #pragma mark - Facebook methods
 
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [self.facebook handleOpenURL:url]; 
-}
-
-
-- (void)initFacebook
-{
-    if (self.facebook) {
-        return;
-    }
-    
-    NSString *fbID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"];
-    if (fbID) {
-        // facebook
-        self.facebook = [[Facebook alloc] initWithAppId:fbID andDelegate:self];
-    }
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"FBAccessTokenKey"] 
-        && [defaults objectForKey:@"FBExpirationDateKey"]) {
-        self.facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
-        self.facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
-    }
-    
-    self.facebook.sessionDelegate = self;
-    
-    [self.facebook authorize:nil];
-}
+//
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+////    return [self.facebook handleOpenURL:url]; 
+//}
 
 
-- (void)updateFacebookToken:(NSString *)accessToken expiresAt:(NSDate *)expiresAt
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:accessToken forKey:@"FBAccessTokenKey"];
-    [defaults setObject:expiresAt forKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-}
-
-
-- (void)fbDidLogin
-{
-    [self updateFacebookToken:facebook.accessToken expiresAt:facebook.expirationDate];
-}
-
-
-- (void)fbDidNotLogin:(BOOL)cancelled
-{
-    NSLog(@"User did not log in to Facebook");
-}
-
-
-- (void)fbDidLogout
-{
-    NSLog(@"User did log out from Facebook");
-}
-
-
-- (void)fbSessionInvalidated
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:@"FBAccessTokenKey"];
-    [defaults removeObjectForKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-}
-
-
-- (void)fbDidExtendToken:(NSString*)accessToken
-               expiresAt:(NSDate*)expiresAt
-{
-    [self updateFacebookToken:accessToken expiresAt:expiresAt];
-}
-
-
-- (void)shareOnFacebook:(WHFeedItem *)item
-{
-    [self initFacebook];
-    NSMutableDictionary *sharingParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:[item.link absoluteString], @"link", item.title, @"name", nil];
-    
-    // look for pictures in the post
-    WHMediaElement *media = [item bestContentForWidth:0];
-    
-    if (media == nil) {
-        media = [item bestThumbnailForWidth:0];
-    }
-    
-    if (media) {
-        [sharingParams setObject:[media.URL absoluteString] forKey:@"picture"];
-    }
-        
-    [self.facebook dialog:@"feed" andParams:sharingParams andDelegate:self];
-}
+//- (void)initFacebook
+//{
+//    if (self.facebook) {
+//        return;
+//    }
+//    
+//    NSString *fbID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"];
+//    if (fbID) {
+//        // facebook
+//        self.facebook = [[Facebook alloc] initWithAppId:fbID andDelegate:self];
+//    }
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if ([defaults objectForKey:@"FBAccessTokenKey"] 
+//        && [defaults objectForKey:@"FBExpirationDateKey"]) {
+//        self.facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+//        self.facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+//    }
+//    
+//    self.facebook.sessionDelegate = self;
+//    
+//    [self.facebook authorize:nil];
+//}
+//
+//
+//- (void)updateFacebookToken:(NSString *)accessToken expiresAt:(NSDate *)expiresAt
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:accessToken forKey:@"FBAccessTokenKey"];
+//    [defaults setObject:expiresAt forKey:@"FBExpirationDateKey"];
+//    [defaults synchronize];
+//}
+//
+//
+//- (void)fbDidLogin
+//{
+//    [self updateFacebookToken:facebook.accessToken expiresAt:facebook.expirationDate];
+//}
+//
+//
+//- (void)fbDidNotLogin:(BOOL)cancelled
+//{
+//    NSLog(@"User did not log in to Facebook");
+//}
+//
+//
+//- (void)fbDidLogout
+//{
+//    NSLog(@"User did log out from Facebook");
+//}
+//
+//
+//- (void)fbSessionInvalidated
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults removeObjectForKey:@"FBAccessTokenKey"];
+//    [defaults removeObjectForKey:@"FBExpirationDateKey"];
+//    [defaults synchronize];
+//}
+//
+//
+//- (void)fbDidExtendToken:(NSString*)accessToken
+//               expiresAt:(NSDate*)expiresAt
+//{
+//    [self updateFacebookToken:accessToken expiresAt:expiresAt];
+//}
+//
+//
+//- (void)shareOnFacebook:(WHFeedItem *)item
+//{
+//    [self initFacebook];
+//    NSMutableDictionary *sharingParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:[item.link absoluteString], @"link", item.title, @"name", nil];
+//    
+//    // look for pictures in the post
+//    WHMediaElement *media = [item bestContentForWidth:0];
+//    
+//    if (media == nil) {
+//        media = [item bestThumbnailForWidth:0];
+//    }
+//    
+//    if (media) {
+//        [sharingParams setObject:[media.URL absoluteString] forKey:@"picture"];
+//    }
+//        
+//    [self.facebook dialog:@"feed" andParams:sharingParams andDelegate:self];
+//}
 
 
 @end
