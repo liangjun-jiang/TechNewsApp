@@ -81,12 +81,14 @@
     NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:formatString, escaped, self.page]];
     
     DebugLog(@"Search URL = %@", searchURL);
-    __block NINetworkRequestOperation *op = [[NINetworkRequestOperation alloc] initWithURL:searchURL];
+    NINetworkRequestOperation *op = [[NINetworkRequestOperation alloc] initWithURL:searchURL];
+    
+    __weak NINetworkRequestOperation *_op = op;
     
     // this block will be called with the operation itself
     op.didFinishBlock = ^(id obj) {
         // cast it to access network-op-specific properties
-        id result = [NSJSONSerialization JSONObjectWithData:op.data options:0 error:nil];
+        id result = [NSJSONSerialization JSONObjectWithData:_op.data options:0 error:nil];
         DebugLog(@"API result = %@", result);
         id results = [result objectForKey:@"results"];
         if (results && [results respondsToSelector:@selector(objectAtIndex:)]) {

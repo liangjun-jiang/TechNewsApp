@@ -1,17 +1,111 @@
 {
     "feeds":[
                   {
-                  "title":"BLOG",
+                  "title":"Main",
                   "view-type":"article-list",
-                  "feed-url":"http://example.com/feed/mobile/blog"
+                  "feed-url":"http://feeds.feedburner.com/Venturebeat?format=xml"
                   },
                   {
-                  "title":"PRESS RELEASES",
+                  "title":"Big Data",
                   "view-type":"article-list",
-                  "feed-url":"http://example.com/feed/mobile/press"
+                  "feed-url":"http://feeds.feedburner.com/VenturebeatBigData"
                   },
-                  {
-                  "title":"PHOTOS",
+                 {
+                 "title":"Business",
+                 "view-type":"article-list",
+                 "feed-url":"http://venturebeat.com/category/business/feed/"
+                 },
+             
+             {
+             "title":"Cloud",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/cloud/feed/"
+             },
+             {
+             "title":"Deals",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/deals/feed/"
+             },
+             {
+             "title":"Demo",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/demo/feed/"
+             },
+             {
+             "title":"Dev",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/dev/feed/"
+             },
+             
+             {
+             "title":"Entrepreneur",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/entrepreneur/feed/"
+             },
+             
+             {
+             "title":"Gadgets",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/gadgets/feed/"
+             },
+             
+             {
+             "title":"Green",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/green/feed/"
+             },
+             {
+             "title":"Health",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/health/feed/"
+             },
+             {
+             "title":"Lifestyle",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/lifestyle/feed/"
+             },
+             {
+             "title":"Media",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/media/feed/"
+             },
+             
+             {
+             "title":"Mobile",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/mobile/feed/"
+             },
+             {
+             "title":"New York",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/new-york/feed/"
+             },
+             
+             {
+             "title":"Science",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/science/feed/"
+             },
+             
+             {
+             "title":"Security",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/security/feed/"
+             },
+             
+             {
+             "title":"Small Biz",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/small-biz/feed/"
+             },
+             
+             {
+             "title":"Social",
+             "view-type":"article-list",
+             "feed-url":"http://venturebeat.com/category/social/feed/"
+             },
+                {
+                  "title":"Photo",
                   "view-type":"photo-gallery",
                   "feed-url":"http://example.com/feed/mobile/photos"
                   },
