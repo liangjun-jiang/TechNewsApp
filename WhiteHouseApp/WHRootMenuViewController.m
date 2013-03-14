@@ -122,7 +122,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.scrollEnabled = NO;
+    tableView.scrollEnabled = YES;
     [self styleTableView:tableView];
     
     self.tableView = tableView;

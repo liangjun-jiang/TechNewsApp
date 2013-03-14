@@ -104,6 +104,63 @@
              "view-type":"article-list",
              "feed-url":"http://venturebeat.com/category/social/feed/"
              },
+             
+             {
+             "title":"Techcrunch:Startups",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/TechCrunch/startups"
+             },
+             
+             {
+             "title":"Techcrunch: Funding & Exits",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/techcrunch/fundings-exits?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: Social",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/techcrunch/social?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: Mobile",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/Mobilecrunch?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: Gadgets",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/crunchgear?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: Gaming",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/TechCrunch/Gaming?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: Gadgets",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/crunchgear?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: Enterprise",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/techcrunchIt?format=xml"
+             },
+             
+             {
+             "title":"Techcrunch: GreenTech",
+             "view-type":"article-list",
+             "feed-url":"http://feeds.feedburner.com/TechCrunch/Greentech?format=xml"
+             },
+             
+             
+             
                 {
                   "title":"Photo",
                   "view-type":"photo-gallery",
