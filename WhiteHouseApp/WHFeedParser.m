@@ -127,6 +127,13 @@ NSRegularExpression *_dupeSpacePattern;
 {
     WHMediaElement *media = [WHMediaElement new];
     NSString *stringURL = [attrs objectForKey:@"url"];
+    // some url has the "?width=160" we need to remove it
+    NSRange range = [stringURL rangeOfString:@"?w" options:NSBackwardsSearch];
+    if (range.location != NSNotFound) {
+        stringURL = [stringURL substringToIndex:range.location];
+//        DebugLog(@"trimmed url :%@",stringURL);
+    }
+    
     media.URL = [NSURL URLWithString:stringURL];
     media.size = CGSizeMake([[attrs objectForKey:@"width"] floatValue], [[attrs objectForKey:@"height"] floatValue]);
     media.type = [attrs objectForKey:@"type"];
