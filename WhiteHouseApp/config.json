@@ -3,7 +3,7 @@
                   {
                   "title":"Main",
                   "view-type":"article-list",
-                  "feed-url":"http://feeds.feedburner.com/Venturebeat?format=xml"
+                  "feed-url":"http://venturebeat.com/feed/"
                   },
                   {
                   "title":"Big Data",

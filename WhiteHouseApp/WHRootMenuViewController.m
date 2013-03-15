@@ -124,7 +124,17 @@
     tableView.dataSource = self;
     tableView.scrollEnabled = YES;
     [self styleTableView:tableView];
-//
+
+    // add a header
+//    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200, 60)];
+//    NSArray *items = @[@"VentureBeat", @"Techcrunch"];
+//    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
+//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//    [segmentedControl addTarget:self action:@selector(onSegmentedControl:) forControlEvents:UIControlEventValueChanged];
+//    segmentedControl.selectedSegmentIndex = 0;
+//    segmentedControl.frame = CGRectMake(20.0, 15, 200, 30);
+//    self.tableView.tableHeaderView = container;
+    
     self.tableView = tableView;
     
     WHTrendyView *bg = [[WHTrendyView alloc] initWithFrame:self.view.bounds];
@@ -196,6 +206,7 @@
     
     return cell;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -328,4 +339,11 @@
     DebugLog(@"oh noes");
 }
 
+#pragma mark - segementedControl
+
+- (void)onSegmentedControl:(id)sender
+{
+    
+    
+}
 @end
