@@ -140,7 +140,7 @@ NSRegularExpression *_dupeSpacePattern;
     NSDictionary *context = [self.tagStack lastObject];
     NSDictionary *attrs = [context objectForKey:@"attributes"];
     NSString *text = [context objectForKey:@"text"];
-
+    
     if ([tagPath isEqualToString:@"/rss/channel/item"]) {
         self.callbackBlock(self.currentItem);
         self.currentItem = nil;
@@ -165,6 +165,7 @@ NSRegularExpression *_dupeSpacePattern;
             [self.currentItem addMediaThumbnail:thumbnail];
         }
     } else if ([tagPath hasSuffix:@"item/media:content"]) {
+//        DebugLog(@"media content: %@",attrs);
         [self.currentItem addMediaContent:[self mediaElementFromAttributes:attrs]];
     } else if ([tagPath hasSuffix:@"item/enclosure"]) {
         self.currentItem.enclosureURL = [NSURL URLWithString:[[context objectForKey:@"attributes"] objectForKey:@"url"]];

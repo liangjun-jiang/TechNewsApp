@@ -163,26 +163,29 @@
             } else {
                 viewController = [[WHBlogViewController alloc] initWithFeed:feed];
             }
-        } else if ([viewType isEqualToString:@"photo-gallery"]) {
-            viewController = [[WHPhotoGalleryViewController alloc] initWithFeed:feed];
-        } else if ([viewType isEqualToString:@"video-gallery"]) {
-            if (NIIsPad()) {
-                WHReaderViewController *iPadVideo = [[WHReaderViewController alloc] initWithFeed:feed];
-                iPadVideo.pressToShare = YES;
-                viewController = iPadVideo;
-                
-            } else {
-                viewController = [[WHVideoViewController alloc] initWithFeed:feed];
-            }
-        } else if ([viewType isEqualToString:@"live"]) {
-            self.liveSectionViewController = [[WHLiveFeedViewController alloc] initWithFeed:feed];
-            viewController = self.liveSectionViewController;
-            liveSectionMenuIndex = currentIndex;
-            
-            NSInteger freq = [AppConfig(@"LiveFeedUpdateFrequency") integerValue];
-            self.liveController = [[WHLiveController alloc] initWithFeed:feed updateFrequency:freq];
-            self.liveBarController = [[WHLiveBarController alloc] init];
         }
+        
+        // we don't use this
+//        else if ([viewType isEqualToString:@"photo-gallery"]) {
+//            viewController = [[WHPhotoGalleryViewController alloc] initWithFeed:feed];
+//        } else if ([viewType isEqualToString:@"video-gallery"]) {
+//            if (NIIsPad()) {
+//                WHReaderViewController *iPadVideo = [[WHReaderViewController alloc] initWithFeed:feed];
+//                iPadVideo.pressToShare = YES;
+//                viewController = iPadVideo;
+//                
+//            } else {
+//                viewController = [[WHVideoViewController alloc] initWithFeed:feed];
+//            }
+//        } else if ([viewType isEqualToString:@"live"]) {
+//            self.liveSectionViewController = [[WHLiveFeedViewController alloc] initWithFeed:feed];
+//            viewController = self.liveSectionViewController;
+//            liveSectionMenuIndex = currentIndex;
+//            
+//            NSInteger freq = [AppConfig(@"LiveFeedUpdateFrequency") integerValue];
+//            self.liveController = [[WHLiveController alloc] initWithFeed:feed updateFrequency:freq];
+//            self.liveBarController = [[WHLiveBarController alloc] init];
+//        }
         
         viewController.title = title;
         [items addObject:[self createMenuItem:viewController]];

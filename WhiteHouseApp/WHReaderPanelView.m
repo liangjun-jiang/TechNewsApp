@@ -60,6 +60,7 @@
 {
     _feedItem = feedItem;
     
+//    DebugLog(@"feedItem :%@",_feedItem);
     _titleLabel.text = feedItem.title;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -78,7 +79,9 @@
     
     self.imageView.image = [UIImage imageNamed:@"photo-placeholder"];
     
-    WHMediaElement *thumb = [self.feedItem bestThumbnailForWidth:(self.bounds.size.width + 50)];
+    // we don't have thumbnail tag
+//    WHMediaElement *thumb = [self.feedItem bestThumbnailForWidth:(self.bounds.size.width + 50)];
+    WHMediaElement *thumb = [self.feedItem bestContentForWidth:(self.bounds.size.width + 50)];
     if (thumb) {
         self.imageView.hidden = NO;
         self.textLabel.hidden = YES;

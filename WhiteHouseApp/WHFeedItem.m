@@ -103,7 +103,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<WHFeedItem guid: %@; title: %@; pubDate: %@>", self.guid, self.title, self.pubDate];
+    return [NSString stringWithFormat:@"<WHFeedItem guid: %@; title: %@; pubDate: %@; url: %@>", self.guid, self.title, self.pubDate, self.enclosureURL];
 }
 
 

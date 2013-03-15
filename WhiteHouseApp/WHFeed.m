@@ -56,7 +56,7 @@ NSString* const WHFeedChangedNotification = @"WHFeedChangedNotification";
     if ((self = [super init])) {
         self.feedURL = feedURL;
         self.cache = [[WHRemoteFile alloc] initWithBundleResource:nil ofType:nil remoteURL:self.feedURL];
-        _queue = dispatch_queue_create("gov.eop.wh.feed_loading", NULL);
+        _queue = dispatch_queue_create("com.ljapps.feed_loading", NULL);
     }
     
     return self;
