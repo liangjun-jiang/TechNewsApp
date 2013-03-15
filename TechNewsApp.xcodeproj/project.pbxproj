@@ -162,6 +162,7 @@
 		52FCB72215B99FA100B76924 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72115B99FA100B76924 /* play@2x.png */; };
 		52FCB72415B99FD100B76924 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72315B99FD100B76924 /* play.png */; };
 		52FCB73515B9A21200B76924 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72815B9A21200B76924 /* FBDialog.bundle */; };
+		D6F7203C16F3B9D50054973F /* config2.json in Resources */ = {isa = PBXBuildFile; fileRef = D6F7203B16F3B9D50054973F /* config2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -531,6 +532,7 @@
 		D6D03FA916E58F63009A91BD /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/GAITransactionItem.h; sourceTree = SOURCE_ROOT; };
 		D6D03FAA16E58F63009A91BD /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_debug.a; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/libGoogleAnalytics_debug.a; sourceTree = SOURCE_ROOT; };
 		D6D03FAB16E58F63009A91BD /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/libGoogleAnalytics.a; sourceTree = SOURCE_ROOT; };
+		D6F7203B16F3B9D50054973F /* config2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -804,6 +806,7 @@
 		5235CC1F155C5FF10095163C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D6F7203B16F3B9D50054973F /* config2.json */,
 				5265E59915B7BBEA00173B1C /* Localizable.strings */,
 				52256437157E9571004922B5 /* config.json */,
 				5235CC20155C5FF10095163C /* TechNewsApp-Info.plist */,
@@ -1415,6 +1418,7 @@
 				5208F9C5160CF03500F2C4C2 /* Default-568h@2x.png in Resources */,
 				526D95CC1614FE5000D4796D /* vignette.png in Resources */,
 				526D95CE1614FE9400D4796D /* noise800.png in Resources */,
+				D6F7203C16F3B9D50054973F /* config2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

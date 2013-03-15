@@ -188,10 +188,11 @@
         [items addObject:[self createMenuItem:viewController]];
         currentIndex++;
     }
-    
-    UIViewController *favoritesViewController = [[WHFavoritesViewController alloc] initWithNibName:nil bundle:nil];
-    favoritesViewController.title = NSLocalizedString(@"FavoritesMenuItemTitle", @"Title displayed in the menu for Favorites section");
-    [items addObject:[self createMenuItem:favoritesViewController]];
+
+    // I don't want to add a favorite channel
+//    UIViewController *favoritesViewController = [[WHFavoritesViewController alloc] initWithNibName:nil bundle:nil];
+//    favoritesViewController.title = NSLocalizedString(@"FavoritesMenuItemTitle", @"Title displayed in the menu for Favorites section");
+//    [items addObject:[self createMenuItem:favoritesViewController]];
     
     menuController.menuItems = items;
     

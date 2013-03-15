@@ -157,24 +157,10 @@
              "title":"Techcrunch: GreenTech",
              "view-type":"article-list",
              "feed-url":"http://feeds.feedburner.com/TechCrunch/Greentech?format=xml"
-             },
+             }
              
              
              
-                {
-                  "title":"Photo",
-                  "view-type":"photo-gallery",
-                  "feed-url":"http://example.com/feed/mobile/photos"
-                  },
-                  {
-                  "title":"VIDEOS",
-                  "view-type":"video-gallery",
-                  "feed-url":"http://example.com/feed/mobile/video"
-                  },
-                  {
-                  "title":"LIVE",
-                  "view-type":"live",
-                  "feed-url":"http://example.com/feed/mobile/live"
-                  }
-                  ]
+               
+            ]
 }

@@ -1,0 +1,15 @@
+ {
+                  "title":"Photo",
+                  "view-type":"photo-gallery",
+                  "feed-url":"http://example.com/feed/mobile/photos"
+                  },
+                  {
+                  "title":"VIDEOS",
+                  "view-type":"video-gallery",
+                  "feed-url":"http://example.com/feed/mobile/video"
+                  },
+                  {
+                  "title":"LIVE",
+                  "view-type":"live",
+                  "feed-url":"http://example.com/feed/mobile/live"
+                  }

@@ -49,22 +49,23 @@
 - (void)displayFeedItem:(WHFeedItem *)item
 {
 //    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"%@/%@", [self trackingPathComponent], [item trackingPathCompontent]] withError:nil];
-//    
-    if (item.enclosureURL) {
-        NSString *host = item.enclosureURL.host;
-        if ([host rangeOfString:@"youtube"].location != NSNotFound || [host rangeOfString:@"youtu.be"].location != NSNotFound) {
-            WHYouTubePlayerViewController *videoPlayer = [[WHYouTubePlayerViewController alloc] initWithVideoURL:item.enclosureURL];
-            [self.navigationController pushViewController:videoPlayer animated:YES];
-        } else {
-            MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:item.enclosureURL];
-            [self presentMoviePlayerViewControllerAnimated:player];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:player.moviePlayer];
-        }
-    } else {
+//
+    //for venturebeat, the enclosureURL is basically pointed to a jpg file with 160pixel size
+//    if (item.enclosureURL) {
+//        NSString *host = item.enclosureURL.host;
+//        if ([host rangeOfString:@"youtube"].location != NSNotFound || [host rangeOfString:@"youtu.be"].location != NSNotFound) {
+//            WHYouTubePlayerViewController *videoPlayer = [[WHYouTubePlayerViewController alloc] initWithVideoURL:item.enclosureURL];
+//            [self.navigationController pushViewController:videoPlayer animated:YES];
+//        } else {
+//            MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:item.enclosureURL];
+//            [self presentMoviePlayerViewControllerAnimated:player];
+//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:player.moviePlayer];
+//        }
+//    } else {
         WHArticleViewController *web = [[WHArticleViewController alloc] initWithNibName:nil bundle:nil];
         web.feedItem = item;
         [self.navigationController pushViewController:web animated:YES];
-    }
+//    }
 }
 
 

@@ -93,15 +93,15 @@
 {
     [super viewDidLoad];
     
-    UISearchBar *bar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-    [bar sizeToFit];
-    bar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    bar.tintColor = [UIColor colorWithWhite:(121.0/255.0) alpha:1.0];
-    
-    bar.placeholder = NSLocalizedString(@"SearchPlaceholder", @"Search WhiteHouse.gov");
-    [self.view addSubview:bar];
-    
-    self.searchBar = bar;
+//    UISearchBar *bar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+//    [bar sizeToFit];
+//    bar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    bar.tintColor = [UIColor colorWithWhite:(121.0/255.0) alpha:1.0];
+//    
+//    bar.placeholder = NSLocalizedString(@"SearchPlaceholder", @"Search WhiteHouse.gov");
+//    [self.view addSubview:bar];
+//    
+//    self.searchBar = bar;
     
     /*
      initializing a search display controller sets the contents controller's
@@ -109,22 +109,22 @@
      we need a second strong reference to it in order for delegate methods to
      work at all...
     */
-    self.mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    self.mySearchDisplayController.delegate = self;
-    self.mySearchDisplayController.searchResultsDataSource = self;
-    self.mySearchDisplayController.searchResultsDelegate = self;
-    
-    // squish the table view frame down by the height of the search bar
+//    self.mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+//    self.mySearchDisplayController.delegate = self;
+//    self.mySearchDisplayController.searchResultsDataSource = self;
+//    self.mySearchDisplayController.searchResultsDelegate = self;
+//    
+//    // squish the table view frame down by the height of the search bar
     CGRect tableViewFrame = self.view.bounds;
-    tableViewFrame.origin.y += self.searchBar.bounds.size.height;
-    tableViewFrame.size.height -= tableViewFrame.origin.y;
-    
+//    tableViewFrame.origin.y += self.searchBar.bounds.size.height;
+//    tableViewFrame.size.height -= tableViewFrame.origin.y;
+//    
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.scrollEnabled = YES;
     [self styleTableView:tableView];
-    
+//
     self.tableView = tableView;
     
     WHTrendyView *bg = [[WHTrendyView alloc] initWithFrame:self.view.bounds];
