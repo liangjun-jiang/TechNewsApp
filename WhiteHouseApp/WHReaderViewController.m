@@ -162,7 +162,7 @@ static CGFloat padding = 10.0;
             [panel setHidden:NO];
             WHFeedItem *item = [self.posts objectAtIndex:itemIndex];
             panel.feedItem = item;
-            DebugLog(@"the item :%@",item);
+//            DebugLog(@"the item :%@",item);
             UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(itemTapped:)];
             [panel addGestureRecognizer:tapper];
             

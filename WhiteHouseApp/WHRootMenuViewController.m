@@ -115,10 +115,11 @@
 //    self.mySearchDisplayController.searchResultsDelegate = self;
 //    
 //    // squish the table view frame down by the height of the search bar
-    CGRect tableViewFrame = self.view.bounds;
+    CGRect tableViewFrame = self.view.frame;
 //    tableViewFrame.origin.y += self.searchBar.bounds.size.height;
 //    tableViewFrame.size.height -= tableViewFrame.origin.y;
-//    
+//    tableViewFrame.size.height -= 100.0;
+//
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;

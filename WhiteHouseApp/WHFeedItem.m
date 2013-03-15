@@ -103,7 +103,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<WHFeedItem guid: %@; title: %@; pubDate: %@; url: %@>", self.guid, self.title, self.pubDate, self.enclosureURL];
+    return [NSString stringWithFormat:@"<WHFeedItem guid: %@; title: %@; pubDate: %@; desc: %@>", self.guid, self.title, self.pubDate, self.descriptionText];
 }
 
 
@@ -195,7 +195,7 @@
         }
     }
     
-    DebugLog(@"looking for match for %i; found %i", (int)pixelWidth, (int)closest.size.width);
+//    DebugLog(@"looking for match for %i; found %i", (int)pixelWidth, (int)closest.size.width);
     
     return closest;   
 }

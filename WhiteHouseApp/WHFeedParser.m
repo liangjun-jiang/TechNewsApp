@@ -164,7 +164,11 @@ NSRegularExpression *_dupeSpacePattern;
     } else if ([tagPath hasSuffix:@"item/description"]) {
         self.currentItem.descriptionHTML = text;
         self.currentItem.descriptionText = [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")];
-    } else if ([tagPath hasSuffix:@"item/link"]) {
+    } else if ([tagPath hasSuffix:@"item/content:encoded"]){
+        DebugLog(@"real meat! %@", [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")]);
+    }
+    
+    else if ([tagPath hasSuffix:@"item/link"]) {
         self.currentItem.link = [NSURL URLWithString:text];
     } else if ([tagPath hasSuffix:@"item/media:thumbnail"]) {
         WHMediaElement *thumbnail = [self mediaElementFromAttributes:attrs];
