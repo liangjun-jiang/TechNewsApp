@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>FacebookAppID</key>
-	<string>000000000000000</string>
+	<string>198343006880503</string>
 	<key>FeedConfigURL</key>
-	<string>http://your-site.example.com/files/config.json</string>
+	<string>http://www.ljapps.com/files/config.json</string>
 	<key>GANAccountID</key>
 	<string>UA-00000000-0</string>
 	<key>SearchURLFormat</key>
@@ -21,19 +21,19 @@
 	<key>PrimaryBrandColor</key>
 	<string>#003366</string>
 	<key>HeadingFontName</key>
-	<string>Georgia</string>
+	<string>Avenir-Medium	</string>
 	<key>DetailFontName</key>
-	<string>Arial</string>
+	<string>Avenir-Roman</string>
 	<key>ToolbarBranding.FontName</key>
 	<string>HoeflerText-Regular</string>
 	<key>LiveBarTitleFontName</key>
-	<string>Arial-BoldMT</string>
+	<string>Avenir-Heavy</string>
 	<key>LiveBarHandleFontName</key>
-	<string>Arial-BoldMT</string>
+	<string>Avenir-Heavy</string>
 	<key>TextExtractionXPath</key>
 	<string>//p | //div[not(starts-with(@class, &apos;field&apos;))]</string>
 	<key>ArticleBaseURL</key>
-	<string>http://www.example.com/</string>
+	<string>http://www.ljapps.com/</string>
 	<key>LiveFeedUpdateFrequency</key>
 	<integer>60</integer>
 </dict>

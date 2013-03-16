@@ -165,7 +165,15 @@ NSRegularExpression *_dupeSpacePattern;
         self.currentItem.descriptionHTML = text;
         self.currentItem.descriptionText = [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")];
     } else if ([tagPath hasSuffix:@"item/content:encoded"]){
-        DebugLog(@"real meat! %@", [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")]);
+        //need to get ride of "Filed Under: AND the rest content"
+        NSRange range = [text rangeOfString:@"Filed under:" options:NSBackwardsSearch];
+        if (range.location != NSNotFound) {
+            text = [text substringToIndex:range.location];
+//            DebugLog(@"trimmed text :%@",text);
+        }
+        self.currentItem.fullLengthHTML = text;
+        self.currentItem.fullLengthText = [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")];
+//        DebugLog(@"real meat! %@", [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")]);
     }
     
     else if ([tagPath hasSuffix:@"item/link"]) {

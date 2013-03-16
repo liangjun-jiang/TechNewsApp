@@ -13,3 +13,9 @@
                   "view-type":"live",
                   "feed-url":"http://example.com/feed/mobile/live"
                   }
+
+<div class="content">
+<%= description %>
+</div>
+
+ <img src ="<%= imageURL %>" />

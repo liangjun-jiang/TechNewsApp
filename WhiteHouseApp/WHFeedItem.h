@@ -52,6 +52,8 @@
 @property (nonatomic, strong) NSURL *link;
 @property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic, strong) NSString *descriptionHTML;
+@property (nonatomic, strong) NSString *fullLengthText;
+@property (nonatomic, strong) NSString *fullLengthHTML;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSDate *pubDate;
 @property (nonatomic, strong) NSString *creator;

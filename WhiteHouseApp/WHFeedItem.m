@@ -81,6 +81,8 @@
 @synthesize link;
 @synthesize descriptionHTML;
 @synthesize descriptionText;
+@synthesize fullLengthHTML;
+@synthesize fullLengthText;
 @synthesize categories;
 @synthesize pubDate;
 @synthesize creator;
@@ -116,6 +118,8 @@
     ENCODE_PROPERTY(link);
     ENCODE_PROPERTY(descriptionText);
     ENCODE_PROPERTY(descriptionHTML);
+    ENCODE_PROPERTY(fullLengthText);
+    ENCODE_PROPERTY(fullLengthHTML);
     ENCODE_PROPERTY(categories);
     ENCODE_PROPERTY(pubDate);
     ENCODE_PROPERTY(creator);
@@ -144,6 +148,10 @@
             DECODE_PROPERTY(descriptionHTML);
             DECODE_PROPERTY(descriptionText);
         }
+        
+        //todo
+        DECODE_PROPERTY(fullLengthHTML);
+        DECODE_PROPERTY(fullLengthText);
         
         DECODE_PROPERTY(categories);
         DECODE_PROPERTY(pubDate);

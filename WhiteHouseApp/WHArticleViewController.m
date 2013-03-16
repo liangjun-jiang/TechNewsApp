@@ -89,13 +89,21 @@
     NSString *dateString = [dateFormatter stringFromDate:self.feedItem.pubDate];
     
     NSMutableDictionary *pageInfo = [NSMutableDictionary dictionary];
-    [pageInfo setObject:self.feedItem.descriptionHTML forKey:@"description"];
+//    [pageInfo setObject:self.feedItem.descriptionHTML forKey:@"description"];
+//    [pageInfo setObject:self.feedItem.descriptionText forKey:@"description"];
+    [pageInfo setObject:self.feedItem.fullLengthHTML forKey:@"fullLength"];
+    
+//    WHMediaElement *thumb = [self.feedItem bestContentForWidth:(self.view.bounds.size.width)];
+//    
+//    if (thumb) [pageInfo setObject:[thumb.URL absoluteString] forKey:@"imageURL"];
+    
     [pageInfo setObject:[self.feedItem.link absoluteString] forKey:@"link"];
     [pageInfo setObject:self.feedItem.title forKey:@"title"];
     [pageInfo setObject:dateString forKey:@"date"];
     [pageInfo setObject:[NSNumber numberWithInt:[self.feedItem.pubDate timeIntervalSince1970]] forKey:@"timestamp"];
     [pageInfo setObject:self.feedItem.creator forKey:@"creator"];
     [pageInfo setObject:AppConfig(@"ArticleBaseURL") forKey:@"baseURL"];
+    
     
     NSError *error = nil;
     NSData *pageInfoData = [NSJSONSerialization dataWithJSONObject:pageInfo options:0 error:&error];
@@ -166,6 +174,8 @@
     CGFloat viewHeight = self.view.bounds.size.height;
     CGFloat toolbarHeight = 44;
     
+    self.title = self.feedItem.title;
+    
     self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, viewHeight - toolbarHeight, viewWidth, toolbarHeight)];
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     
@@ -181,6 +191,7 @@
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight - toolbarHeight)];
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.webView.delegate = self;
+//    [self.webView loadHTMLString:self.feedItem.fullLengthText baseURL:nil];
     [self.view addSubview:self.webView];
     
     [self loadTemplate];
