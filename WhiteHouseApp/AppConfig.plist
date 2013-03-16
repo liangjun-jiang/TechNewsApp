@@ -21,9 +21,9 @@
 	<key>PrimaryBrandColor</key>
 	<string>#003366</string>
 	<key>HeadingFontName</key>
-	<string>Avenir-Medium	</string>
+	<string>ArialHebrew-Bold</string>
 	<key>DetailFontName</key>
-	<string>Avenir-Roman</string>
+	<string>ArialHebrew</string>
 	<key>ToolbarBranding.FontName</key>
 	<string>HoeflerText-Regular</string>
 	<key>LiveBarTitleFontName</key>

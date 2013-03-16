@@ -1649,6 +1649,7 @@
 				GCC_PREFIX_HEADER = "WhiteHouseApp/TechNewsApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}/usr/include/libxml2\"";
 				INFOPLIST_FILE = "WhiteHouseApp/TechNewsApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TechNewsApp;
@@ -1668,6 +1669,7 @@
 				GCC_PREFIX_HEADER = "WhiteHouseApp/TechNewsApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}/usr/include/libxml2\"";
 				INFOPLIST_FILE = "WhiteHouseApp/TechNewsApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TechNewsApp;

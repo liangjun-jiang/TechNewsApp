@@ -142,15 +142,16 @@
     bg.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
     bg.autoresizingMask = UIViewAutoresizingFlexibleDimensions;
     
-    UIImageView *seal = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav-branding"]];
-    seal.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    seal.contentMode = UIViewContentModeScaleAspectFit;
-    
-    int w = tableView.bounds.size.width;
-    seal.frame = CGRectInset(CGRectMake(0, 200, w, 200), 3, 3);
-    seal.alpha = 0.1;
-    [self.view addSubview:seal];
-    [bg addSubview:seal];
+    // good idea, but I just don't need this one
+//    UIImageView *seal = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav-branding"]];
+//    seal.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+//    seal.contentMode = UIViewContentModeScaleAspectFit;
+//    
+//    int w = tableView.bounds.size.width;
+//    seal.frame = CGRectInset(CGRectMake(0, 200, w, 200), 3, 3);
+//    seal.alpha = 0.1;
+//    [self.view addSubview:seal];
+//    [bg addSubview:seal];
     
     tableView.backgroundView = bg;
     [self.view addSubview:tableView];
