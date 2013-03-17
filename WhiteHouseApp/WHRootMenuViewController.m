@@ -55,6 +55,8 @@
 @property (nonatomic, strong) WHSearchController *searchController;
 @property (nonatomic, strong) UISearchDisplayController *mySearchDisplayController;
 @property (nonatomic, readonly) WHRevealViewController *revealViewController;
+@property (nonatomic, assign) NSUInteger selectedIndex;
+@property (nonatomic, strong) NSArray *filteredMenuItem;
 @end
 
 @implementation WHRootMenuViewController
@@ -66,6 +68,7 @@
 @synthesize mySearchDisplayController;
 @synthesize revealViewController;
 @synthesize selectedMenuItemIndex = _selectedMenuItemIndex;
+@synthesize filteredMenuItem;
 
 
 - (void)setSelectedMenuItemIndex:(NSUInteger)selectedMenuItemIndex
@@ -93,6 +96,11 @@
 {
     [super viewDidLoad];
     
+    // default new source is Venture Beat
+    self.selectedIndex = 0;
+  
+    self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"VentureBeat"]];
+    DebugLog(@"vb items: %@",self.filteredMenuItem);
 //    UISearchBar *bar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
 //    [bar sizeToFit];
 //    bar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -102,6 +110,20 @@
 //    [self.view addSubview:bar];
 //    
 //    self.searchBar = bar;
+    
+    // add a header
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 60)];
+    container.backgroundColor = [self cellBGColor];// [UIColor whiteColor];
+    NSArray *items = @[@"VentureBeat", @"TechCrunch"];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
+    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    [segmentedControl addTarget:self action:@selector(onSegmentedControl:) forControlEvents:UIControlEventValueChanged];
+    segmentedControl.selectedSegmentIndex = self.selectedIndex;
+    segmentedControl.frame = CGRectMake(27.5, 10, 200, 30); // more like try and error
+    segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    segmentedControl.tintColor = [UIColor colorWithWhite:(121.0/255.0) alpha:1.0];
+    [container addSubview:segmentedControl];
+    [self.view addSubview:container];
     
     /*
      initializing a search display controller sets the contents controller's
@@ -116,24 +138,16 @@
 //    
 //    // squish the table view frame down by the height of the search bar
     CGRect tableViewFrame = self.view.frame;
-//    tableViewFrame.origin.y += self.searchBar.bounds.size.height;
-//    tableViewFrame.size.height -= tableViewFrame.origin.y;
-//    tableViewFrame.size.height -= 100.0;
+    tableViewFrame.origin.y += segmentedControl.bounds.size.height;
+    tableViewFrame.size.height -= tableViewFrame.origin.y;
 //
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.scrollEnabled = YES;
     [self styleTableView:tableView];
-
-    // add a header
-//    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 200, 60)];
-//    NSArray *items = @[@"VentureBeat", @"Techcrunch"];
-//    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
-//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-//    [segmentedControl addTarget:self action:@selector(onSegmentedControl:) forControlEvents:UIControlEventValueChanged];
-//    segmentedControl.selectedSegmentIndex = 0;
-//    segmentedControl.frame = CGRectMake(20.0, 15, 200, 30);
+    
+    
 //    self.tableView.tableHeaderView = container;
     
     self.tableView = tableView;
@@ -141,6 +155,7 @@
     WHTrendyView *bg = [[WHTrendyView alloc] initWithFrame:self.view.bounds];
     bg.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
     bg.autoresizingMask = UIViewAutoresizingFlexibleDimensions;
+
     
     // good idea, but I just don't need this one
 //    UIImageView *seal = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav-branding"]];
@@ -182,7 +197,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.tableView) {
-        return self.menuItems.count;
+        return self.filteredMenuItem.count;
+//        return self.menuItems.count;
     } else {
         return self.searchController.results.count;
     }
@@ -242,7 +258,8 @@
         cell.accessoryView = [DTCustomColoredAccessory accessoryWithColor:cell.textLabel.textColor];
     }
     
-    WHMenuItem *item = [self.menuItems objectAtIndex:indexPath.row];
+//    WHMenuItem *item = [self.menuItems objectAtIndex:indexPath.row];
+     WHMenuItem *item = [self.filteredMenuItem objectAtIndex:indexPath.row];
     cell.textLabel.text = item.title;
     
     return cell;
@@ -259,7 +276,7 @@
 {
     DebugLog(@"selected row %i", indexPath.row);
     if (tableView == self.tableView) {
-        self.revealViewController.contentViewController = [[self.menuItems objectAtIndex:indexPath.row] viewController];
+        self.revealViewController.contentViewController = [[self.filteredMenuItem objectAtIndex:indexPath.row] viewController];
         [self.revealViewController setMenuVisible:NO wantsFullWidth:NO];
     } else {
         NIWebController *browser = [[NIWebController alloc] initWithNibName:nil bundle:nil];
@@ -342,10 +359,21 @@
 }
 
 #pragma mark - segementedControl
+- (NSPredicate *)predicateFromString:(NSString*)criteria
+{
+    return [NSPredicate predicateWithFormat:@"(source=%@)", criteria];
+}
+
 
 - (void)onSegmentedControl:(id)sender
 {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    if (segmentedControl.selectedSegmentIndex == 0) {
+        self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"VentureBeat"]];
+    } else if (segmentedControl.selectedSegmentIndex == 1){
+        self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"TechCrunch"]];
+    }
     
-    
+    [self.tableView reloadData];
 }
 @end

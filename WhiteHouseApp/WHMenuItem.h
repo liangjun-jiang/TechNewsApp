@@ -35,9 +35,11 @@
 @interface WHMenuItem : NSObject
 
 @property NSString *title;
+@property NSString *source;
+
 @property UIImage *icon;
 @property UIViewController *viewController;
 
-- (id)initWithTitle:(NSString *)title icon:(UIImage *)icon viewController:(UIViewController *)viewController;
+- (id)initWithTitle:(NSString *)title icon:(UIImage *)icon viewController:(UIViewController *)viewController source:(NSString*)source;
 
 @end

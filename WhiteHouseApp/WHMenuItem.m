@@ -35,15 +35,17 @@
 @implementation WHMenuItem
 
 @synthesize title = _title;
+@synthesize source = _source; // which source 
 @synthesize icon = _icon;
 @synthesize viewController = _viewController;
 
-- (id)initWithTitle:(NSString *)title icon:(UIImage *)icon viewController:(UIViewController *)viewController
+- (id)initWithTitle:(NSString *)title icon:(UIImage *)icon viewController:(UIViewController *)viewController source:(NSString *)source
 {
     if ((self = [super init])) {
         self.title = title;
         self.icon = icon;
         self.viewController = viewController;
+        self.source = source;
     }
     
     return self;

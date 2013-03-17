@@ -83,13 +83,13 @@
 /**
  * Wrap viewController in a navigation controller and a WHMenuItem
  */
-- (WHMenuItem *)createMenuItem:(UIViewController *)viewController
+- (WHMenuItem *)createMenuItem:(UIViewController *)viewController source:(NSString *)source
 {
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[WHStyle headingFontWithSize:22.0], UITextAttributeFont, nil];
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     viewController.navigationItem.leftBarButtonItem = menuButton;
-    return [[WHMenuItem alloc] initWithTitle:viewController.title icon:nil viewController:navController];
+    return [[WHMenuItem alloc] initWithTitle:viewController.title icon:nil viewController:navController source:source];
 }
 
 
@@ -143,6 +143,8 @@
         NSString *title = [itemConfig objectForKey:@"title"];
         NSURL *feedURL = [NSURL URLWithString:[itemConfig objectForKey:@"feed-url"]];
         NSString *viewType = [itemConfig objectForKey:@"view-type"];
+        // add source
+        NSString *source = [itemConfig objectForKey:@"source"];
         
         WHFeed *feed = nil;
         if (feedURL) {
@@ -188,7 +190,7 @@
 //        }
         
         viewController.title = title;
-        [items addObject:[self createMenuItem:viewController]];
+        [items addObject:[self createMenuItem:viewController source:source]];
         currentIndex++;
     }
 
