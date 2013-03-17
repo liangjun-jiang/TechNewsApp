@@ -81,24 +81,93 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
     [mailer setSubject:title];
     NSString *body = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", [self.feedItem.link absoluteString], title];
     [mailer setMessageBody:body isHTML:YES];
-    [self.viewController presentModalViewController:mailer animated:YES];
+    [self.viewController presentViewController:mailer animated:YES completion:nil];
 }
 
 
-- (void)tweetArticle
-{
-    TWTweetComposeViewController *tweet = [[TWTweetComposeViewController alloc] init];
-    [tweet setInitialText:self.feedItem.title];
-    [tweet addURL:self.feedItem.link];
-    [self.viewController presentModalViewController:tweet animated:YES];
-}
-
-
+//- (void)tweetArticle
+//{
+//    TWTweetComposeViewController *tweet = [[TWTweetComposeViewController alloc] init];
+//    [tweet setInitialText:self.feedItem.title];
+//    [tweet addURL:self.feedItem.link];
+//    [self.viewController presentModalViewController:tweet animated:YES];
+//}
+//
+//
 //- (void)shareOnFacebook
 //{
-//    WHAppDelegate *appDelegate = (WHAppDelegate *)[UIApplication sharedApplication].delegate;
-//    [appDelegate shareOnFacebook:self.feedItem];
+//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+//        
+//        SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//        
+//        [mySLComposerSheet setInitialText:self.feedItem.title];
+//        
+////        [mySLComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
+//        
+//        [mySLComposerSheet addURL:self.feedItem.link];
+//        
+//        [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+//            
+//            switch (result) {
+//                case SLComposeViewControllerResultCancelled:
+//                    NSLog(@"Post Canceled");
+//                    break;
+//                case SLComposeViewControllerResultDone:
+//                    NSLog(@"Post Sucessful");
+//                    break;
+//                    
+//                default:
+//                    break;
+//            }
+//        }];
+//        
+//        [self.viewController presentViewController:mySLComposerSheet animated:YES completion:nil];
+//    }
 //}
+
+- (void)shareOn:(NSString *)service
+{
+//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook] && [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+//    
+        DebugLog(@"service available");
+        SLComposeViewController *slComposerSheet = nil;
+        if ([service isEqualToString:@"tweet"]){
+            slComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        } else if ([service isEqualToString:@"facebook"]){
+            slComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        }
+        
+        DebugLog(@"twitter or facebook available");
+        [slComposerSheet setInitialText:self.feedItem.title];
+        
+        //        [slComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
+        
+        [slComposerSheet addURL:self.feedItem.link];
+        
+        [slComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    DebugLog(@"Post Canceled");
+                    break;
+                case SLComposeViewControllerResultDone:
+                    DebugLog(@"Post Sucessful");
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+        
+        [self.viewController presentViewController:slComposerSheet animated:YES completion:nil];
+        
+//    }
+    
+    
+    
+}
+
 
 
 #pragma mark - action sheet methods
@@ -134,9 +203,9 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
     [actions addObject:[NSNumber numberWithInt:ArticleActionFacebook]];
     [sheet addButtonWithTitle:facebook];
     
-    NSString *favoriteTitle = NSLocalizedString(@"AddToFavorites", @"Title for favorites button in sharing action sheet");
-    [actions addObject:[NSNumber numberWithInt:ArticleActionFavorite]];
-    [sheet addButtonWithTitle:favoriteTitle];
+//    NSString *favoriteTitle = NSLocalizedString(@"AddToFavorites", @"Title for favorites button in sharing action sheet");
+//    [actions addObject:[NSNumber numberWithInt:ArticleActionFavorite]];
+//    [sheet addButtonWithTitle:favoriteTitle];
     
     [sheet addButtonWithTitle:@"Cancel"];
     [sheet setCancelButtonIndex:actions.count];
@@ -165,10 +234,12 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
             break;
             
         case ArticleActionTweet:
-            [self tweetArticle];
+            [self shareOn:@"tweet"];
+//            [self tweetArticle];
             break;
             
         case ArticleActionFacebook:
+            [self shareOn:@"facebook"];
 //            [self shareOnFacebook];
             break;
             
@@ -186,7 +257,8 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    [self.viewController dismissModalViewControllerAnimated:YES];
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+//    [self.viewController dismissModalViewControllerAnimated:YES];
 }
 
 

@@ -33,6 +33,8 @@
 #import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
 #import <Twitter/Twitter.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 #import "WHFeedItem.h"
 

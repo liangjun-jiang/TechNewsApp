@@ -155,14 +155,14 @@ NSString * const WHLiveBarWillHideNotification = @"WHLiveBarDidHideNotification"
     liveBarTitle.textColor = [UIColor whiteColor];
     
     liveBarTitle.text = @"TITLE GOES HERE";
-    liveBarTitle.textAlignment = UITextAlignmentCenter;
+    liveBarTitle.textAlignment = NSTextAlignmentCenter;
     liveBarTitle.numberOfLines = 0;
     self.liveBarTitleLabel = liveBarTitle;
     
     int handleLabelFontSize = 9;
     UILabel *handleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, handleView.bounds.size.height - handleLabelFontSize - 10, handleView.bounds.size.width, handleLabelFontSize)];
     handleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    handleLabel.textAlignment = UITextAlignmentCenter;
+    handleLabel.textAlignment = NSTextAlignmentCenter;
     handleLabel.text = NSLocalizedString(@"LiveBarHandleLabel", @"WATCH LIVE");
     handleLabel.font = [UIFont fontWithName:AppConfig(@"LiveBarHandleFontName") size:handleLabelFontSize];
     handleLabel.textColor = [UIColor colorWithWhite:0 alpha:0.4];

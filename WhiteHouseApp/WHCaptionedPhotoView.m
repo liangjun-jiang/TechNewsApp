@@ -64,7 +64,7 @@ static UIEdgeInsets kWellPadding;
         
         self.captionLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _captionLabel.backgroundColor = [UIColor clearColor];
-        _captionLabel.lineBreakMode = UILineBreakModeTailTruncation;
+        _captionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         _captionLabel.numberOfLines = 0;
         _captionLabel.font = [WHStyle detailFontWithSize:12];
         _captionLabel.textColor = [UIColor colorWithWhite:0.8 alpha:1.0];

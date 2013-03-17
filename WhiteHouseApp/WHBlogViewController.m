@@ -156,7 +156,7 @@ NSString* RelativeDateString(NSDate *date)
 - (CGSize)sizeForTitleText:(NSString *)text
 {
     CGFloat titleWidth = self.tableView.bounds.size.width - (CELL_PADDING + CELL_PADDING_RIGHT);
-    return [text sizeWithFont:[WHStyle headingFontWithSize:TITLE_FONT_SIZE] constrainedToSize:CGSizeMake(titleWidth, 1000) lineBreakMode:UILineBreakModeWordWrap];
+    return [text sizeWithFont:[WHStyle headingFontWithSize:TITLE_FONT_SIZE] constrainedToSize:CGSizeMake(titleWidth, 1000) lineBreakMode:NSLineBreakByWordWrapping];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -270,7 +270,7 @@ static NSString *CellIdentifier = @"PhotoCell";
     [cell.contentView addSubview:spinner];
     
     UILabel *failLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    failLabel.textAlignment = UITextAlignmentCenter;
+    failLabel.textAlignment = NSTextAlignmentCenter;
     CGPoint failCenter = cell.contentView.center;
     failCenter.y += 1;
     failLabel.center = failCenter;
