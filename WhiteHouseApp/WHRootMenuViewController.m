@@ -100,7 +100,7 @@
     self.selectedIndex = 0;
   
     self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"VentureBeat"]];
-    DebugLog(@"vb items: %@",self.filteredMenuItem);
+//    DebugLog(@"vb items: %@",self.filteredMenuItem);
 //    UISearchBar *bar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
 //    [bar sizeToFit];
 //    bar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -112,7 +112,7 @@
 //    self.searchBar = bar;
     
     // add a header
-    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 60)];
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 50.0)];
     container.backgroundColor = [self cellBGColor];// [UIColor whiteColor];
     NSArray *items = @[@"VentureBeat", @"TechCrunch"];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
@@ -138,8 +138,9 @@
 //    
 //    // squish the table view frame down by the height of the search bar
     CGRect tableViewFrame = self.view.frame;
-    tableViewFrame.origin.y += segmentedControl.bounds.size.height;
-    tableViewFrame.size.height -= tableViewFrame.origin.y;
+    tableViewFrame.origin.x = 0;
+    tableViewFrame.origin.y += container.bounds.size.height;
+    tableViewFrame.size.height -= (tableViewFrame.origin.y + 10.0);
 //
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
