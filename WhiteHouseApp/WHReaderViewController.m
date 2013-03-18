@@ -36,7 +36,10 @@
 #import "WHReaderPanelView.h"
 #import "SVPullToRefresh.h"
 
+#import <iAd/iAd.h>
+
 @interface WHReaderViewController ()
+
 @property (nonatomic, strong) WHSharingUtilities *sharing;
 @end
 
@@ -78,6 +81,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
     

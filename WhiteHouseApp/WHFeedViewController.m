@@ -38,6 +38,7 @@
 #import "WHLiveController.h"
 #import "WHAppDelegate.h"
 #import "CustomBadge.h"
+#import <iAd/iAd.h>
 
 NSDate *DayFromDate(NSDate *date)
 {
@@ -49,7 +50,10 @@ NSDate *DayFromDate(NSDate *date)
 
 
 
-@interface WHFeedViewController ()
+@interface WHFeedViewController ()<ADBannerViewDelegate>
+{
+    ADBannerView *_bannerView;
+}
 @property (nonatomic, strong) UIBarButtonItem *liveBarButtonItem;
 @end
 
@@ -94,6 +98,11 @@ NSDate *DayFromDate(NSDate *date)
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liveBarWillAppear:) name:WHLiveBarWillAppearNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liveBarWillHide:) name:WHLiveBarWillHideNotification object:nil];
+    
+    // iAds
+    _bannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+    _bannerView.delegate = self;
+   
 }
 
 
@@ -305,5 +314,9 @@ NSDate *DayFromDate(NSDate *date)
     return nil;
 }
 
-
+#pragma mark - iAd delegate
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    self.tableView.tableHeaderView = _bannerView;
+}
 @end

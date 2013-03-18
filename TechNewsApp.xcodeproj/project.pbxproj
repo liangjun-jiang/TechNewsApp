@@ -750,7 +750,6 @@
 		5235CC09155C5FF10095163C = {
 			isa = PBXGroup;
 			children = (
-				D6F52BE916F5656D00AF0EC1 /* iAd.framework */,
 				5235CC1E155C5FF10095163C /* TechNewsApp */,
 				5235CC17155C5FF10095163C /* Frameworks */,
 				52256436157E929E004922B5 /* Libraries */,
@@ -769,6 +768,7 @@
 		5235CC17155C5FF10095163C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6F52BE916F5656D00AF0EC1 /* iAd.framework */,
 				526D95C7161358E000D4796D /* Library */,
 				526D95BF16134E0300D4796D /* Social.framework */,
 				526D95BD16134DFE00D4796D /* Accounts.framework */,
