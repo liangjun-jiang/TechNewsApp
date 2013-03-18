@@ -192,15 +192,21 @@
     
     WHMediaElement *closest = nil;
     for (WHMediaElement *media in collection) {
-        CGFloat mediaDiff = ABS(pixelWidth - media.size.width);
-        CGFloat closestDiff = ABS(pixelWidth - closest.size.width);
-        if (closest == nil) {
-            closest = media;
-        } else if (mediaDiff < closestDiff) {
-            closest = media;
-        } else if (mediaDiff == closestDiff && closest.size.width < media.size.width) {
-            closest = media;
+        
+        // THIS if is a really faked one
+        if (ABS(media.size.width - 96.0) > 10 ) {
+            CGFloat mediaDiff = ABS(pixelWidth - media.size.width);
+            CGFloat closestDiff = ABS(pixelWidth - closest.size.width);
+            if (closest == nil) {
+                closest = media;
+            } else if (mediaDiff < closestDiff) {
+                closest = media;
+            } else if (mediaDiff == closestDiff && closest.size.width < media.size.width) {
+                closest = media;
+            }
+
         }
+        
     }
     
 //    DebugLog(@"looking for match for %i; found %i", (int)pixelWidth, (int)closest.size.width);

@@ -127,15 +127,24 @@ NSRegularExpression *_dupeSpacePattern;
 {
     WHMediaElement *media = [WHMediaElement new];
     NSString *stringURL = [attrs objectForKey:@"url"];
-    // some url has the "?width=160" we need to remove it
-    NSRange range = [stringURL rangeOfString:@"?w" options:NSBackwardsSearch];
-    if (range.location != NSNotFound) {
-        stringURL = [stringURL substringToIndex:range.location];
-//        DebugLog(@"trimmed url :%@",stringURL);
+    // this gonna create some issues for those item which have multiple contents
+    // some contents are for the blog author, however, the blog author photo usually likes
+    // http://2.gravatar.com/avatar/2730ac85eb6d3f6f7491d176987aab05?s=96&amp;d=identicon&amp;r=G
+    if ([stringURL rangeOfString:@"gravatar.com/avatar/"].location == NSNotFound) {
+        // some urls have the "?w=160" we need to remove it
+        NSRange range = [stringURL rangeOfString:@"?w" options:NSBackwardsSearch];
+        if (range.location != NSNotFound) {
+            stringURL = [stringURL substringToIndex:range.location];
+            //        DebugLog(@"trimmed url :%@",stringURL);
+        }
+        // we do't have this size info, but the size info helps to remove Avatar image
+        media.size = CGSizeMake(160.0, 160.0);
+    } else  {
+//        media.size = CGSizeMake([[attrs objectForKey:@"width"] floatValue], [[attrs objectForKey:@"height"] floatValue]);
+        media.size = CGSizeMake(96.0, 96.0);  // we make this size number for the later filter purpose
     }
     
     media.URL = [NSURL URLWithString:stringURL];
-    media.size = CGSizeMake([[attrs objectForKey:@"width"] floatValue], [[attrs objectForKey:@"height"] floatValue]);
     media.type = [attrs objectForKey:@"type"];
     return media;
 }
@@ -181,14 +190,13 @@ NSRegularExpression *_dupeSpacePattern;
     } else if ([tagPath hasSuffix:@"item/media:thumbnail"]) {
         WHMediaElement *thumbnail = [self mediaElementFromAttributes:attrs];
         [self.currentItem addMediaThumbnail:thumbnail];
-         DebugLog(@"thumbnail added");
+//         DebugLog(@"thumbnail added");
         //why do we need a size info here?
 //        if (thumbnail.size.width) {
 //            DebugLog(@"thumbnail added");
 //            [self.currentItem addMediaThumbnail:thumbnail];
 //        }
     } else if ([tagPath hasSuffix:@"item/media:content"]) {
-//        DebugLog(@"media content: %@",attrs);
         [self.currentItem addMediaContent:[self mediaElementFromAttributes:attrs]];
     } else if ([tagPath hasSuffix:@"item/enclosure"]) {
         self.currentItem.enclosureURL = [NSURL URLWithString:[[context objectForKey:@"attributes"] objectForKey:@"url"]];
