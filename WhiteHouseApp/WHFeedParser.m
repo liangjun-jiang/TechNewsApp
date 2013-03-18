@@ -180,9 +180,13 @@ NSRegularExpression *_dupeSpacePattern;
         self.currentItem.link = [NSURL URLWithString:text];
     } else if ([tagPath hasSuffix:@"item/media:thumbnail"]) {
         WHMediaElement *thumbnail = [self mediaElementFromAttributes:attrs];
-        if (thumbnail.size.width) {
-            [self.currentItem addMediaThumbnail:thumbnail];
-        }
+        [self.currentItem addMediaThumbnail:thumbnail];
+         DebugLog(@"thumbnail added");
+        //why do we need a size info here?
+//        if (thumbnail.size.width) {
+//            DebugLog(@"thumbnail added");
+//            [self.currentItem addMediaThumbnail:thumbnail];
+//        }
     } else if ([tagPath hasSuffix:@"item/media:content"]) {
 //        DebugLog(@"media content: %@",attrs);
         [self.currentItem addMediaContent:[self mediaElementFromAttributes:attrs]];

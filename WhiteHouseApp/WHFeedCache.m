@@ -65,7 +65,7 @@ static WHFeedCache *sharedCache;
         [self open];
         
         // this queue serves to serialize database access
-        _queue = dispatch_queue_create("gov.eop.wh.database", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("com.ljapps.vb.database", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }

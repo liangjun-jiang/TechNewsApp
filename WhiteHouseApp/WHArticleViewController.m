@@ -91,11 +91,14 @@
     NSMutableDictionary *pageInfo = [NSMutableDictionary dictionary];
 //    [pageInfo setObject:self.feedItem.descriptionHTML forKey:@"description"];
 //    [pageInfo setObject:self.feedItem.descriptionText forKey:@"description"];
+    
+    // TODO:
+    // the fullLengthHTML will create the blur images for techcrunch
     [pageInfo setObject:self.feedItem.fullLengthHTML forKey:@"fullLength"];
     
-//    WHMediaElement *thumb = [self.feedItem bestContentForWidth:(self.view.bounds.size.width)];
-//    
-//    if (thumb) [pageInfo setObject:[thumb.URL absoluteString] forKey:@"imageURL"];
+    WHMediaElement *thumb = [self.feedItem bestContentForWidth:(self.view.bounds.size.width)];
+    
+    if (thumb) [pageInfo setObject:[thumb.URL absoluteString] forKey:@"imageURL"];
     
     [pageInfo setObject:[self.feedItem.link absoluteString] forKey:@"link"];
     [pageInfo setObject:self.feedItem.title forKey:@"title"];

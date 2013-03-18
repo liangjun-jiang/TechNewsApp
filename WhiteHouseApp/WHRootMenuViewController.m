@@ -139,7 +139,8 @@
 //    // squish the table view frame down by the height of the search bar
     CGRect tableViewFrame = self.view.frame;
     tableViewFrame.origin.x = 0;
-    tableViewFrame.origin.y += container.bounds.size.height;
+    tableViewFrame.origin.y = 0;
+    tableViewFrame.origin.y += container.bounds.size.height; //should be at 50.0
     tableViewFrame.size.height -= (tableViewFrame.origin.y + 10.0);
 //
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];

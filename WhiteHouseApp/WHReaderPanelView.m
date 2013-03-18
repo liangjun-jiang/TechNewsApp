@@ -79,9 +79,13 @@
     
     self.imageView.image = [UIImage imageNamed:@"photo-placeholder"];
     
-    // we don't have thumbnail tag
-//    WHMediaElement *thumb = [self.feedItem bestThumbnailForWidth:(self.bounds.size.width + 50)];
-    WHMediaElement *thumb = [self.feedItem bestContentForWidth:(self.bounds.size.width + 50)];
+    // venturebeat doesn't have thumbnail tag, but techcrunch has.
+    WHMediaElement *thumb = nil;
+    thumb = [self.feedItem bestThumbnailForWidth:(self.bounds.size.width + 50)];
+    if (thumb == nil) {
+        thumb = [self.feedItem bestContentForWidth:(self.bounds.size.width + 50)];
+    }
+    
     if (thumb) {
         self.imageView.hidden = NO;
         self.textLabel.hidden = YES;
