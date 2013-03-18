@@ -35,8 +35,12 @@
 #import "WHAppDelegate.h"
 #import "NIWebController.h"
 #import "WHSharingUtilities.h"
+#import <iAd/iAd.h>
 
-@interface WHArticleViewController ()
+@interface WHArticleViewController ()<ADBannerViewDelegate>
+{
+    ADBannerView *_bannerView;
+}
 @property (nonatomic, strong) WHSharingUtilities *sharing;
 @property (nonatomic, assign) BOOL needsTemplateRendering;
 @end
@@ -173,6 +177,12 @@
 {
     [super viewDidLoad];
     
+    // iAds
+    _bannerView = [[ADBannerView alloc]
+                   initWithFrame:CGRectZero];
+    
+    _bannerView.delegate = self;
+    
     CGFloat viewWidth = self.view.bounds.size.width;
     CGFloat viewHeight = self.view.bounds.size.height;
     CGFloat toolbarHeight = 44;
@@ -203,6 +213,7 @@
 
 - (void)viewDidUnload
 {
+    _bannerView.delegate = nil;
     self.webView.delegate = nil;
     [self.webView stopLoading];
     [super viewDidUnload];
@@ -224,4 +235,33 @@
     return YES;
 }
 
+#pragma mark - banner delegate
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+//    CGRect contentFrame = self.view.bounds;
+//    CGRect bannerFrame = CGRectMake(0.0, 0.0, self.view.bounds.size.width, 44.0);
+//    if (_bannerView.bannerLoaded) {
+//        contentFrame.size.height -= _bannerView.frame.size.height;
+//        bannerFrame.origin.y = contentFrame.size.height;
+//    } else {
+//        bannerFrame.origin.y = contentFrame.size.height;
+//    }
+//    _bannerView.frame = bannerFrame;
+    [self.view addSubview:_bannerView];
+
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
+}
+
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner
+               willLeaveApplication:(BOOL)willLeave
+{
+    return YES;
+}
 @end

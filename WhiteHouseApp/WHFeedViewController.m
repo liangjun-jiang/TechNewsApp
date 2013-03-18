@@ -319,4 +319,19 @@ NSDate *DayFromDate(NSDate *date)
 {
     self.tableView.tableHeaderView = _bannerView;
 }
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
+}
+
+- (BOOL)bannerViewActionShouldBegin:
+(ADBannerView *)banner
+               willLeaveApplication:(BOOL)willLeave
+{
+    return YES;
+}
 @end
