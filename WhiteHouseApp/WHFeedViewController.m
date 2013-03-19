@@ -317,7 +317,10 @@ NSDate *DayFromDate(NSDate *date)
 #pragma mark - iAd delegate
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    self.tableView.tableHeaderView = _bannerView;
+//    self.tableView.tableHeaderView = _bannerView;
+    CGRect frame = CGRectMake(0.0, self.view.frame.size.height - _bannerView.frame.size.height, _bannerView.frame.size.width, _bannerView.frame.size.height);
+    _bannerView.frame = frame;
+    [self.view addSubview:_bannerView];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
