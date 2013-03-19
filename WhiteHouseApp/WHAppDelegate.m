@@ -42,7 +42,7 @@
 #import "WHVideoViewController.h"
 #import "WHRemoteFile.h"
 #import "UATagUtils.h"
-//#import "UAPush.h"
+
 
 
 @interface WHAppDelegate ()
@@ -50,7 +50,7 @@
 @property (nonatomic, strong) WHRootMenuViewController *menu;
 @property (nonatomic, strong) WHFeedViewController *liveSectionViewController;
 @property (nonatomic, strong) WHLiveController *liveController;
-//@property (nonatomic, strong) Facebook *facebook;
+
 @property (nonatomic, strong) NSDictionary *pendingNotification;
 @end
 
@@ -63,7 +63,7 @@
 @synthesize liveSectionViewController = _liveViewController;
 @synthesize liveController;
 @synthesize liveBarController;
-//@synthesize facebook;
+
 @synthesize pendingNotification;
 
 - (void)configureAppearance
@@ -221,12 +221,26 @@
 //    [tracker startTrackerWithAccountID:accountID dispatchPeriod:30 delegate:nil];
 //    [tracker trackPageview:@"/LAUNCH" withError:nil];
     
+    // Parse
+    [Parse setApplicationId:@"KqgHiXWi7AzYwI8qbOJNvfwsN3nbL4oxP3vwUYd9"
+                  clientKey:@"CsYJ1w0uL9rJdNHXC3kggCH4dXnI21jOoaXia0Cr"];
+    
+    // let track somethign
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     self.menu = [self loadMenu];
     UIViewController *defaultViewController = [[self.menu.menuItems objectAtIndex:0] viewController];
     self.reveal = [[WHRevealViewController alloc] initWithMenuViewController:self.menu contentViewController:defaultViewController];
     self.window.rootViewController = self.reveal;
     
     [self.window makeKeyAndVisible];
+    
+    
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
     
     // select and display the first item in the menu
     self.menu.selectedMenuItemIndex = 0;
@@ -238,7 +252,7 @@
     }
     
     // start updating live events
-    [self.liveController startUpdating];
+//    [self.liveController startUpdating];
 //    [self initAirship:application];
     
 #ifdef DEBUG
@@ -269,11 +283,16 @@
 #pragma mark Push notification handling
 
 
-//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-//    // Updates the device token and registers the token with UA
-//    DebugLog(@"Got registration data: %@", deviceToken);
-//    
-//    // use a basic set of Urban Airship tags
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Updates the device token and registers the token with UA
+    DebugLog(@"Got registration data: %@", deviceToken);
+    
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    
+    // use a basic set of Urban Airship tags
 //    NSArray *baseTags = [UATagUtils createTags:(UATagTypeTimeZoneAbbreviation |
 //                                                UATagTypeLanguage |
 //                                                UATagTypeCountry |
@@ -282,7 +301,7 @@
 //    NSArray *tags = [baseTags arrayByAddingObject:@"app_v2"];
 //    [UAPush shared].tags = tags;
 //    [[UAPush shared] registerDeviceToken:deviceToken];
-//}
+}
 
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -328,6 +347,7 @@
 {
     // just pass this on to the remote notification handling routine... they serve the same purpose
     [self application:application didReceiveRemoteNotification:notification.userInfo];
+    
 }
 
 
@@ -338,33 +358,34 @@
  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    UIApplicationState state = [application applicationState];
-    
-    if (state == UIApplicationStateActive) {
-        // store the userInfo dictionary so we can respond to it when the user responds to the alert
-        self.pendingNotification = userInfo;
-        
-        // the aps.alert value is the only text displayed (the alert has no title)
-        NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:message
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"PushNotificationDismissButton", @"A button which dismisses a push notification alert popup")
-                                              otherButtonTitles:nil];
-
-        // if there's a video URL or action, the alert should have a "View" button
-        NSDictionary *custom = [[self class] customDataForNotification:userInfo];
-        if ([custom objectForKey:@"video-url"] || [custom objectForKey:@"action"])
-        {
-            [alert addButtonWithTitle:NSLocalizedString(@"PushNotificationViewButton", @"A button to view the content of a push notification")];
-        }
-        
-        [alert show];
-        
-    } else {
-        [self handleNotification:userInfo];
-    }
+     [PFPush handlePush:userInfo];
+//    UIApplicationState state = [application applicationState];
+//    
+//    if (state == UIApplicationStateActive) {
+//        // store the userInfo dictionary so we can respond to it when the user responds to the alert
+//        self.pendingNotification = userInfo;
+//        
+//        // the aps.alert value is the only text displayed (the alert has no title)
+//        NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+//                                                        message:message
+//                                                       delegate:self
+//                                              cancelButtonTitle:NSLocalizedString(@"PushNotificationDismissButton", @"A button which dismisses a push notification alert popup")
+//                                              otherButtonTitles:nil];
+//
+//        // if there's a video URL or action, the alert should have a "View" button
+//        NSDictionary *custom = [[self class] customDataForNotification:userInfo];
+//        if ([custom objectForKey:@"video-url"] || [custom objectForKey:@"action"])
+//        {
+//            [alert addButtonWithTitle:NSLocalizedString(@"PushNotificationViewButton", @"A button to view the content of a push notification")];
+//        }
+//        
+//        [alert show];
+//        
+//    } else {
+//        [self handleNotification:userInfo];
+//    }
 }
 
 
@@ -386,28 +407,6 @@
 {
     [self.reveal setMenuVisible:YES wantsFullWidth:NO];
 }
-
-
-//
-//
-//- (void)shareOnFacebook:(WHFeedItem *)item
-//{
-//    [self initFacebook];
-//    NSMutableDictionary *sharingParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:[item.link absoluteString], @"link", item.title, @"name", nil];
-//    
-//    // look for pictures in the post
-//    WHMediaElement *media = [item bestContentForWidth:0];
-//    
-//    if (media == nil) {
-//        media = [item bestThumbnailForWidth:0];
-//    }
-//    
-//    if (media) {
-//        [sharingParams setObject:[media.URL absoluteString] forKey:@"picture"];
-//    }
-//        
-//    [self.facebook dialog:@"feed" andParams:sharingParams andDelegate:self];
-//}
 
 
 @end

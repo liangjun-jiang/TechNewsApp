@@ -31,12 +31,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Parse/Parse.h>
 #import "WHRootMenuViewController.h"
 #import "WHLiveBarController.h"
 #import "WHRevealViewController.h"
 #import "WHFeedViewController.h"
 #import "WHLiveController.h"
+
 
 @interface WHAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate> {
     int liveSectionMenuIndex;
