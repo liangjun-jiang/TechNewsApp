@@ -216,6 +216,8 @@
     _bannerView.delegate = nil;
     self.webView.delegate = nil;
     [self.webView stopLoading];
+    
+    self.webView = nil;
     [super viewDidUnload];
 }
 
