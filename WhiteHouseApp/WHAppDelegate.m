@@ -75,7 +75,7 @@
     [[UINavigationBar appearance] setBackgroundImage:barImage forBarMetrics:UIBarMetricsDefault];
     [[UIToolbar appearance] setBackgroundImage:barImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
-    UIImage *barImageLandscape = [UIImage imageNamed:@"bar-background-landscape"];
+    UIImage *barImageLandscape = [UIImage imageNamed:@"bar-background-landscape2"];
     [[UINavigationBar appearance] setBackgroundImage:barImageLandscape forBarMetrics:UIBarMetricsLandscapePhone];
 }
 

@@ -113,7 +113,7 @@
     
     // add a header
     UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 50.0)];
-    container.backgroundColor = [self cellBGColor];// [UIColor whiteColor];
+    container.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:94.0/255.0 blue:250.0/255.0 alpha:1];//[self cellBGColor];// [UIColor co];
     NSArray *items = @[@"VentureBeat", @"TechCrunch"];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
