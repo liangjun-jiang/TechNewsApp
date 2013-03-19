@@ -42,7 +42,7 @@
 #import "WHVideoViewController.h"
 #import "WHRemoteFile.h"
 #import "UATagUtils.h"
-
+#import "SSTheme.h"
 
 
 @interface WHAppDelegate ()
@@ -71,7 +71,7 @@
     [[UINavigationBar appearance] setTintColor:[WHStyle controlTintColor]];
     [[UIToolbar appearance] setTintColor:[WHStyle controlTintColor]];
     
-    UIImage *barImage = [UIImage imageNamed:@"bar-background"];
+    UIImage *barImage = [UIImage imageNamed:@"bar-background2"];
     [[UINavigationBar appearance] setBackgroundImage:barImage forBarMetrics:UIBarMetricsDefault];
     [[UIToolbar appearance] setBackgroundImage:barImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
@@ -208,6 +208,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [SSThemeManager customizeAppAppearance];
     
     [self configureAppearance];
     
