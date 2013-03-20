@@ -181,6 +181,7 @@ NSRegularExpression *_dupeSpacePattern;
 //            DebugLog(@"trimmed text :%@",text);
         }
         
+        // get ride of "dig this.."
         range = [text rangeOfString:@"<div class=\"feedflare\"" options:NSBackwardsSearch];
         if (range.location != NSNotFound) {
             text = [text substringToIndex:range.location];
