@@ -180,6 +180,25 @@ NSRegularExpression *_dupeSpacePattern;
             text = [text substringToIndex:range.location];
 //            DebugLog(@"trimmed text :%@",text);
         }
+        
+        range = [text rangeOfString:@"<div class=\"feedflare\"" options:NSBackwardsSearch];
+        if (range.location != NSNotFound) {
+            text = [text substringToIndex:range.location];
+            //            DebugLog(@"trimmed text :%@",text);
+        }
+        
+        // we also need to get ride of something like this:
+        // ?w=100&h=70&crop=1 in the image which happens in techcrunch
+        range = [text rangeOfString:@"?w=100&amp;h=70&amp;crop=1"];
+        if (range.location != NSNotFound) {
+            NSLog(@"found cropped images!");
+            text = [text stringByReplacingOccurrencesOfString:@"width=\"100\" height=\"70\"" withString:@""];
+            text = [text stringByReplacingOccurrencesOfString:@"?w=100&amp;h=70&amp;crop=1" withString:@""];
+        }
+        
+        // we also need to trim off those "digg this", "save to del.icio.us", "email this" which is used
+        // for certain channel in techcrunch
+        
         self.currentItem.fullLengthHTML = text;
         self.currentItem.fullLengthText = [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")];
 //        DebugLog(@"real meat! %@", [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")]);

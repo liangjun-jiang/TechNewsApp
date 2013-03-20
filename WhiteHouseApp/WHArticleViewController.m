@@ -160,6 +160,7 @@
     brandingLabel.font = [UIFont fontWithName:AppConfig(@"ToolbarBranding.FontName") size:brandingFontSize];
     brandingLabel.text = NSLocalizedString(@"ArticleBrandingText", @"Text that appears at the bottom of article views");
     brandingLabel.textColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+//    brandingLabel.textColor = [UIColor colorWithRed:230.0/255.0 green:27.0/255.0 blue:49.0/255.0 alpha:1.0];
     brandingLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     brandingLabel.shadowOffset = CGSizeMake(0, -1);
     brandingLabel.backgroundColor = [UIColor clearColor];
@@ -204,12 +205,21 @@
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight - toolbarHeight)];
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.webView.delegate = self;
+    
+    // we don't get rich content if just load text
 //    [self.webView loadHTMLString:self.feedItem.fullLengthText baseURL:nil];
     [self.view addSubview:self.webView];
     
     [self loadTemplate];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    // we can get ride of playing video in this way
+    [self.webView loadHTMLString:@"" baseURL:nil];
+    
+}
 
 - (void)viewDidUnload
 {
