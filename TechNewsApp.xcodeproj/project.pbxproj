@@ -145,8 +145,6 @@
 		52BC84E015923E5C005B7B9C /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BC84DF15923E5C005B7B9C /* menu.png */; };
 		52BE7C03159BA51B002C1DF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BE7C02159BA51B002C1DF7 /* Security.framework */; };
 		52CA474E156EC27A009556F5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CA474D156EC27A009556F5 /* MessageUI.framework */; };
-		52CDD102156EE5ED002FEFD2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CDD100156EE5ED002FEFD2 /* Icon.png */; };
-		52CDD103156EE5ED002FEFD2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CDD101156EE5ED002FEFD2 /* Icon@2x.png */; };
 		52CDD108156EE807002FEFD2 /* WHPhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD107156EE807002FEFD2 /* WHPhotoGalleryViewController.m */; };
 		52D2C167159B87E0008B2D1B /* WHTrendyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2C166159B87E0008B2D1B /* WHTrendyView.m */; };
 		52D3594C15C9BE7B00221AF4 /* WHRemoteFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D3594B15C9BE7B00221AF4 /* WHRemoteFile.m */; };
@@ -161,6 +159,10 @@
 		52FAEF0715D0BFC7004E514E /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FAEF0615D0BFC7004E514E /* Icon-Small.png */; };
 		52FCB72215B99FA100B76924 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72115B99FA100B76924 /* play@2x.png */; };
 		52FCB72415B99FD100B76924 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72315B99FD100B76924 /* play.png */; };
+		D64A933616F9688600BC6388 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D64A933516F9688600BC6388 /* Icon-72.png */; };
+		D64A933816F968AF00BC6388 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64A933716F968AE00BC6388 /* Icon-72@2x.png */; };
+		D64A933A16F968C100BC6388 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D64A933916F968C100BC6388 /* Icon.png */; };
+		D64A933C16F968CB00BC6388 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64A933B16F968CB00BC6388 /* Icon@2x.png */; };
 		D6F52BEA16F5656D00AF0EC1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F52BE916F5656D00AF0EC1 /* iAd.framework */; };
 		D6F52BEC16F7FB8A00AF0EC1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F52BEB16F7FB8A00AF0EC1 /* Parse.framework */; };
 		D6F52BEE16F7FBBA00AF0EC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F52BED16F7FBBA00AF0EC1 /* AudioToolbox.framework */; };
@@ -641,6 +643,10 @@
 		52FAEF0615D0BFC7004E514E /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		52FCB72115B99FA100B76924 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		52FCB72315B99FD100B76924 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		D64A933516F9688600BC6388 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D64A933716F968AE00BC6388 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		D64A933916F968C100BC6388 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D64A933B16F968CB00BC6388 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		D6D03FA516E58F63009A91BD /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/GAI.h; sourceTree = SOURCE_ROOT; };
 		D6D03FA616E58F63009A91BD /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/GAITrackedViewController.h; sourceTree = SOURCE_ROOT; };
 		D6D03FA716E58F63009A91BD /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/GAITracker.h; sourceTree = SOURCE_ROOT; };
@@ -1005,6 +1011,10 @@
 		5235CC09155C5FF10095163C = {
 			isa = PBXGroup;
 			children = (
+				D64A933B16F968CB00BC6388 /* Icon@2x.png */,
+				D64A933916F968C100BC6388 /* Icon.png */,
+				D64A933716F968AE00BC6388 /* Icon-72@2x.png */,
+				D64A933516F9688600BC6388 /* Icon-72.png */,
 				5235CC1E155C5FF10095163C /* TechNewsApp */,
 				5235CC17155C5FF10095163C /* Frameworks */,
 				52256436157E929E004922B5 /* Libraries */,
@@ -1748,8 +1758,6 @@
 				5235CC23155C5FF10095163C /* InfoPlist.strings in Resources */,
 				522FC1BE156E70770091D47D /* post.html in Resources */,
 				522FC1BF156E70770091D47D /* wh.css in Resources */,
-				52CDD102156EE5ED002FEFD2 /* Icon.png in Resources */,
-				52CDD103156EE5ED002FEFD2 /* Icon@2x.png in Resources */,
 				5221B01A157E44FE00265F1B /* NimbusWebController.bundle in Resources */,
 				52256438157E9571004922B5 /* config.json in Resources */,
 				524136611585A48000B69354 /* section-bar.png in Resources */,
@@ -1925,6 +1933,10 @@
 				D6F52CF516F80BAC00AF0EC1 /* bar-background-landscape2.png in Resources */,
 				D6F52CF616F80BAC00AF0EC1 /* bar-background-landscape2@2x.png in Resources */,
 				D6F52CF716F80BAC00AF0EC1 /* bar-background2@2x.png in Resources */,
+				D64A933616F9688600BC6388 /* Icon-72.png in Resources */,
+				D64A933816F968AF00BC6388 /* Icon-72@2x.png in Resources */,
+				D64A933A16F968C100BC6388 /* Icon.png in Resources */,
+				D64A933C16F968CB00BC6388 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2161,6 +2173,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhiteHouseApp/TechNewsApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}/usr/include/libxml2\"";
 				INFOPLIST_FILE = "WhiteHouseApp/TechNewsApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;

@@ -79,7 +79,7 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
     mailer.mailComposeDelegate = self;
     NSString *title = self.feedItem.title;
     [mailer setSubject:title];
-    NSString *body = [NSString stringWithFormat:@"<a href=\"%@\">%@</a>", [self.feedItem.link absoluteString], title];
+    NSString *body = [NSString stringWithFormat:@"<a href=\"%@\">%@</a> \n Brought you by TechBeat App", [self.feedItem.link absoluteString], title];
     [mailer setMessageBody:body isHTML:YES];
     [self.viewController presentViewController:mailer animated:YES completion:nil];
 }
@@ -139,7 +139,8 @@ static NSString *WHVideoFavoriteInstructionsDefaultKey = @"VideoSharingInstructi
         }
         
         DebugLog(@"twitter or facebook available");
-        [slComposerSheet setInitialText:self.feedItem.title];
+        NSString *title = [NSString stringWithFormat:@"%@ by TechBeat App",self.feedItem.title];
+        [slComposerSheet setInitialText:title];
         
         //        [slComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
         
