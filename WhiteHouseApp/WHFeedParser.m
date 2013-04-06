@@ -192,7 +192,7 @@ NSRegularExpression *_dupeSpacePattern;
         // ?w=100&h=70&crop=1 in the image which happens in techcrunch
         range = [text rangeOfString:@"?w=100&amp;h=70&amp;crop=1"];
         if (range.location != NSNotFound) {
-            NSLog(@"found cropped images!");
+//            NSLog(@"found cropped images!");
             text = [text stringByReplacingOccurrencesOfString:@"width=\"100\" height=\"70\"" withString:@""];
             text = [text stringByReplacingOccurrencesOfString:@"?w=100&amp;h=70&amp;crop=1" withString:@""];
         }

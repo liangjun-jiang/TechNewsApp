@@ -217,7 +217,7 @@
 {
     [super viewWillDisappear:animated];
     // we can get ride of playing video in this way
-    [self.webView loadHTMLString:@"" baseURL:nil];
+//    [self.webView loadHTMLString:@"" baseURL:nil];
     
 }
 
