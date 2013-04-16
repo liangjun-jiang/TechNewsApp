@@ -43,7 +43,7 @@
 #import "WHRemoteFile.h"
 #import "UATagUtils.h"
 #import "SSTheme.h"
-
+#import "Appirater.h"
 
 @interface WHAppDelegate ()
 @property (nonatomic, strong) WHRevealViewController *reveal;
@@ -255,6 +255,16 @@
     // start updating live events
 //    [self.liveController startUpdating];
 //    [self initAirship:application];
+    
+    
+    //ask for rating
+    [Appirater setAppId:@"623701260"];
+    [Appirater setDaysUntilPrompt:5];
+    [Appirater setUsesUntilPrompt:5];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    [Appirater setDebug:YES];
+    
     
 #ifdef DEBUG
     // uncomment to test notifications
