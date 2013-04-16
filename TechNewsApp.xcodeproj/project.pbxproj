@@ -159,6 +159,7 @@
 		52FAEF0715D0BFC7004E514E /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FAEF0615D0BFC7004E514E /* Icon-Small.png */; };
 		52FCB72215B99FA100B76924 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72115B99FA100B76924 /* play@2x.png */; };
 		52FCB72415B99FD100B76924 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FCB72315B99FD100B76924 /* play.png */; };
+		D6274EC9171CB55700E849D3 /* config_mashable.json in Resources */ = {isa = PBXBuildFile; fileRef = D6274EC8171CB55700E849D3 /* config_mashable.json */; };
 		D64E630E16FFE01D00662187 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E630D16FFE01D00662187 /* Icon.png */; };
 		D64E631016FFE02A00662187 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E630F16FFE02A00662187 /* Icon@2x.png */; };
 		D6F52BEA16F5656D00AF0EC1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F52BE916F5656D00AF0EC1 /* iAd.framework */; };
@@ -641,6 +642,7 @@
 		52FAEF0615D0BFC7004E514E /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		52FCB72115B99FA100B76924 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		52FCB72315B99FD100B76924 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		D6274EC8171CB55700E849D3 /* config_mashable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_mashable.json; sourceTree = "<group>"; };
 		D64E630D16FFE01D00662187 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D64E630F16FFE02A00662187 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		D6D03FA516E58F63009A91BD /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = libs/GoogleAnalyticsiOS_2.0beta4/Library/GAI.h; sourceTree = SOURCE_ROOT; };
@@ -1071,6 +1073,7 @@
 		5235CC1F155C5FF10095163C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D6274EC8171CB55700E849D3 /* config_mashable.json */,
 				D6F7203B16F3B9D50054973F /* config2.json */,
 				5265E59915B7BBEA00173B1C /* Localizable.strings */,
 				52256437157E9571004922B5 /* config.json */,
@@ -1929,6 +1932,7 @@
 				D6F52CF716F80BAC00AF0EC1 /* bar-background2@2x.png in Resources */,
 				D64E630E16FFE01D00662187 /* Icon.png in Resources */,
 				D64E631016FFE02A00662187 /* Icon@2x.png in Resources */,
+				D6274EC9171CB55700E849D3 /* config_mashable.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

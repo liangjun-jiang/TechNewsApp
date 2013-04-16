@@ -114,12 +114,12 @@
     // add a header
     UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 50.0)];
     container.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:94.0/255.0 blue:250.0/255.0 alpha:1];//[self cellBGColor];// [UIColor co];
-    NSArray *items = @[@"VentureBeat", @"TechCrunch"];
+    NSArray *items = @[@"VentureBeat", @"TechCrunch", @"Mashable"];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     [segmentedControl addTarget:self action:@selector(onSegmentedControl:) forControlEvents:UIControlEventValueChanged];
     segmentedControl.selectedSegmentIndex = self.selectedIndex;
-    segmentedControl.frame = CGRectMake(27.5, 10, 200, 30); // more like try and error
+    segmentedControl.frame = CGRectMake(17.5, 10, 220, 30); // more like try and error
     segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     segmentedControl.tintColor = [UIColor colorWithWhite:(121.0/255.0) alpha:1.0];
     [container addSubview:segmentedControl];
@@ -374,7 +374,10 @@
         self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"VentureBeat"]];
     } else if (segmentedControl.selectedSegmentIndex == 1){
         self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"TechCrunch"]];
+    } else if (segmentedControl.selectedSegmentIndex == 2){
+        self.filteredMenuItem = [self.menuItems filteredArrayUsingPredicate:[self predicateFromString:@"Mashable"]];
     }
+
     
     [self.tableView reloadData];
 }

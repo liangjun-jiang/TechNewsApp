@@ -1,194 +1,256 @@
 {
-    "feeds":[
-                  {
-                  "title":"Main",
-             "source":"VentureBeat",
-                  "view-type":"article-list",
-                  "feed-url":"http://venturebeat.com/feed/"
-                  },
-                  {
-                  "title":"Big Data",
-             "source":"VentureBeat",
-                  "view-type":"article-list",
-                  "feed-url":"http://venturebeat.com/category/big-data/feed/"
-                  },
-                 {
-                 "title":"Business",
-             "source":"VentureBeat",
-                 "view-type":"article-list",
-                 "feed-url":"http://venturebeat.com/category/business/feed/"
-                 },
-             
-             {
-             "title":"Cloud",
-             "source":"VentureBeat",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/cloud/feed/"
-             },
-             {
-             "title":"Deals",
-             "source":"VentureBeat",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/deals/feed/"
-             },
-             {
-             "title":"Demo",
-             "source":"VentureBeat",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/demo/feed/"
-             },
-             {
-             "title":"Dev",
-             "source":"VentureBeat",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/dev/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Entrepreneur",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/entrepreneur/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Gadgets",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/gadgets/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Green",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/green/feed/"
-             },
-             {
-             "source":"VentureBeat",
-             "title":"Health",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/health/feed/"
-             },
-             {
-             "source":"VentureBeat",
-             "title":"Lifestyle",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/lifestyle/feed/"
-             },
-             {
-             "source":"VentureBeat",
-             "title":"Media",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/media/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Mobile",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/mobile/feed/"
-             },
-             {
-             "source":"VentureBeat",
-             "title":"New York",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/new-york/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Science",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/science/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Security",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/security/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Small Biz",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/small-biz/feed/"
-             },
-             
-             {
-             "source":"VentureBeat",
-             "title":"Social",
-             "view-type":"article-list",
-             "feed-url":"http://venturebeat.com/category/social/feed/"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Startups",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/TechCrunch/startups"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Funding & Exits",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/techcrunch/fundings-exits?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Social",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/techcrunch/social?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Mobile",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/Mobilecrunch?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Gadgets",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/crunchgear?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Gaming",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/TechCrunch/Gaming?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Gadgets",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/crunchgear?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"Enterprise",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/techcrunchIt?format=xml"
-             },
-             
-             {
-             "source":"TechCrunch",
-             "title":"GreenTech",
-             "view-type":"article-list",
-             "feed-url":"http://feeds.feedburner.com/TechCrunch/Greentech?format=xml"
-             }
-             
-             
-             
-               
-            ]
+    "feeds": [
+              {
+              "title": "Main",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/feed/"
+              },
+              {
+              "title": "Big Data",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/big-data/feed/"
+              },
+              {
+              "title": "Business",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/business/feed/"
+              },
+              {
+              "title": "Cloud",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/cloud/feed/"
+              },
+              {
+              "title": "Deals",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/deals/feed/"
+              },
+              {
+              "title": "Demo",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/demo/feed/"
+              },
+              {
+              "title": "Dev",
+              "source": "VentureBeat",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/dev/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Entrepreneur",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/entrepreneur/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Gadgets",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/gadgets/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Green",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/green/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Health",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/health/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Lifestyle",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/lifestyle/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Media",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/media/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Mobile",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/mobile/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "New York",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/new-york/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Science",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/science/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Security",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/security/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Small Biz",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/small-biz/feed/"
+              },
+              {
+              "source": "VentureBeat",
+              "title": "Social",
+              "view-type": "article-list",
+              "feed-url": "http://venturebeat.com/category/social/feed/"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Startups",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/TechCrunch/startups"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Funding & Exits",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/techcrunch/fundings-exits?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Social",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/techcrunch/social?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Mobile",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/Mobilecrunch?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Gadgets",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/crunchgear?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Gaming",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/TechCrunch/Gaming?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Gadgets",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/crunchgear?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "Enterprise",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/techcrunchIt?format=xml"
+              },
+              {
+              "source": "TechCrunch",
+              "title": "GreenTech",
+              "view-type": "article-list",
+              "feed-url": "http://feeds.feedburner.com/TechCrunch/Greentech?format=xml"
+              },
+              {
+              "source": "Mashable",
+              "view-type": "article-list",
+              "title": "Mashable",
+              "description": "The full Mashable feed — all the social media news you need.",
+              "feed-url": "http://feeds.mashable.com/Mashable"
+              },
+              {
+              "title": "Social Media Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "he latest happenings in social media, plus tips on using Twitter, Facebook, YouTube, Foursquare and more.",
+              "feed-url": "http://feeds.mashable.com/mashable/socialmedia"
+              },
+              {
+              "title": "Tech Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Gadgets, software, web design, web development, video games and geek culture.",
+              "feed-url": "http://feeds.mashable.com/mashable/tech"
+              },
+              {
+              "title": "Business Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Small business, advertising & marketing, money & finance, plus careers and business apps.",
+              "feed-url": "http://feeds.mashable.com/mashable/business"
+              },
+              {
+              "title": "Mobile Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Mobile news about Android, Apple, Blackberry, Palm, Windows Phone and more.",
+              "feed-url": "http://feeds.mashable.com/mashable/mobile"
+              },
+              {
+              "title": "Dev & Design",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Web design and development news, trends and resources.",
+              "feed-url": "http://feeds.mashable.com/mashable/dev-design"
+              },
+              {
+              "title": "Web Video Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Viral videos, live streams and the latest from the web video industry.",
+              "feed-url": "http://feeds.mashable.com/mashable/video"
+              },
+              {
+              "title": "Entertainment Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Music, film, TV and the intersection of social media.",
+              "feed-url": "http://feeds.mashable.com/mashable/entertainment"
+              },
+              {
+              "title": "Apple Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Apple news, iPhone apps, the iPad and the Mac.",
+              "feed-url": "http://feeds.mashable.com/mashable/apple"
+              },
+              {
+              "title": "Social Good Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Social good news, non-profits, events, and latest social good innovations.",
+              "feed-url": "http://feeds.mashable.com/mashable/socialmedia"
+              },
+              {
+              "title": "Mashable Startups Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Startup news, entrepreneurs, investors and the latest startup innovations and resources.",
+              "feed-url": "http://feeds.mashable.com/Mashable/Startups"
+              },
+              {
+              "title": "Mashable Jobs",
+              "source": "Mashable",
+              "view-type": "article-list",
+              "description": "Follow for the latest social media jobs.",
+              "feed-url": "http://feeds.mashable.com/mashable/jobs"
+              }
+              ]
 }
