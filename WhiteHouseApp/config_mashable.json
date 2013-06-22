@@ -1,0 +1,89 @@
+{
+    "feeds": [
+        {
+              "source": "Mashable",
+              "view-type": "article-list",
+            "title": "Mashable",
+            "description": "The full Mashable feed — all the social media news you need.",
+            "feed-url": "http://feeds.mashable.com/Mashable"
+              
+        },
+        {
+            "title": "Social Media Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "he latest happenings in social media, plus tips on using Twitter, Facebook, YouTube, Foursquare and more.",
+            "feed-url": "http://feeds.mashable.com/mashable/socialmedia"
+        },
+        {
+            "title": "Tech Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Gadgets, software, web design, web development, video games and geek culture.",
+            "feed-url": "http://feeds.mashable.com/mashable/tech"
+        },
+        {
+            "title": "Business Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Small business, advertising & marketing, money & finance, plus careers and business apps.",
+            "feed-url": "http://feeds.mashable.com/mashable/business"
+        },
+        {
+            "title": "Mobile Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Mobile news about Android, Apple, Blackberry, Palm, Windows Phone and more.",
+            "feed-url": "http://feeds.mashable.com/mashable/mobile"
+        },
+        {
+            "title": "Dev & Design",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Web design and development news, trends and resources.",
+            "feed-url": "http://feeds.mashable.com/mashable/dev-design"
+        },
+        {
+            "title": "Web Video Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Viral videos, live streams and the latest from the web video industry.",
+            "feed-url": "http://feeds.mashable.com/mashable/video"
+        },
+        {
+            "title": "Entertainment Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Music, film, TV and the intersection of social media.",
+            "feed-url": "http://feeds.mashable.com/mashable/entertainment"
+        },
+        {
+            "title": "Apple Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Apple news, iPhone apps, the iPad and the Mac.",
+            "feed-url": "http://feeds.mashable.com/mashable/apple"
+        },
+        {
+            "title": "Social Good Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Social good news, non-profits, events, and latest social good innovations.",
+            "feed-url": "http://feeds.mashable.com/mashable/socialmedia"
+        },
+        {
+            "title": "Mashable Startups Channel",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Startup news, entrepreneurs, investors and the latest startup innovations and resources.",
+            "feed-url": "http://feeds.mashable.com/Mashable/Startups"
+        },
+        {
+            "title": "Mashable Jobs",
+              "source": "Mashable",
+              "view-type": "article-list",
+            "description": "Follow for the latest social media jobs.",
+            "feed-url": "http://feeds.mashable.com/mashable/jobs"
+        }
+    ]
+}

@@ -118,7 +118,7 @@
 - (NSDictionary *)feedConfig
 {
     NSURL *configURL = [NSURL URLWithString:AppConfig(@"FeedConfigURL")];
-    WHRemoteFile *feedConfigFile = [[WHRemoteFile alloc] initWithBundleResource:@"config" ofType:@"json" remoteURL:configURL];
+    WHRemoteFile *feedConfigFile = [[WHRemoteFile alloc] initWithBundleResource:@"config_mashable" ofType:@"json" remoteURL:configURL];
     [feedConfigFile updateWithValidator:^BOOL(NSData *remoteData) {
         return [[self class] parseJSONData:remoteData] != nil;
     }];
