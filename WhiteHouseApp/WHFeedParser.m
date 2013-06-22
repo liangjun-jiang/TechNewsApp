@@ -171,6 +171,10 @@ NSRegularExpression *_dupeSpacePattern;
     } else if ([tagPath hasSuffix:@"item/guid"]) {
         self.currentItem.guid = text;
     } else if ([tagPath hasSuffix:@"item/description"]) {
+        
+        /*Mashable has some tag like
+        <div style="float: right; width: 50px;"><a href="http://twitter.com/share?via=Mashable&text=3+Elements+of+Every+Successful+Business+Plan&src=http%3A%2F%2Fmashable.com%2F2013%2F04%2F15%2Fbusiness-plan-elements%2F%3Futm_medium%3Dfeed%26utm_source%3Drss" style="margin: 10px;"><img alt="Feed-tw" border="0" src="http://rack.3.mshcdn.com/assets/feed-tw-df3e816c4e85a109d6e247013aed8d66.jpg" /></a><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fmashable.com%2F2013%2F04%2F15%2Fbusiness-plan-elements%2F%3Futm_medium%3Dfeed%26utm_source%3Drss&src=sp" style="margin: 10px;"><img alt="Feed-fb" border="0" src="http://rack.1.mshcdn.com/assets/feed-fb-fdab25e3700868c9621fb03b7fd07c38.jpg" /></a></div>
+         */
         self.currentItem.descriptionHTML = text;
         self.currentItem.descriptionText = [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")];
     } else if ([tagPath hasSuffix:@"item/content:encoded"]){
@@ -200,6 +204,17 @@ NSRegularExpression *_dupeSpacePattern;
         // we also need to trim off those "digg this", "save to del.icio.us", "email this" which is used
         // for certain channel in techcrunch
         
+        
+        //approach 2
+        NSRange startRange = [text rangeOfString:@"<div style=\"float: right; width: 50px;\">"];
+        NSRange endRange = [text rangeOfString:@"</div>"];
+        if (startRange.location != NSNotFound && endRange.location !=NSNotFound) {
+            NSRange removedRange = NSMakeRange(startRange.location, endRange.location-startRange.location+endRange.length);
+            DebugLog(@"start location :%d, end location:%d",removedRange.location, removedRange.length);
+            
+            text = [text stringByReplacingCharactersInRange:removedRange withString:@""];
+        }
+
         self.currentItem.fullLengthHTML = text;
         self.currentItem.fullLengthText = [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")];
 //        DebugLog(@"real meat! %@", [WHXMLUtils textFromHTMLString:text xpath:AppConfig(@"TextExtractionXPath")]);
